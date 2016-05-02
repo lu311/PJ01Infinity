@@ -8,5 +8,6 @@ namespace PJ01Model
 {
     public class SP100_Pessoa
     {
+        public int pessoaID { get; set; }
     }
 }
