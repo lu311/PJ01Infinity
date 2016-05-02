@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    public class Class1
+    public class SP100_Pessoa
     {
     }
 }

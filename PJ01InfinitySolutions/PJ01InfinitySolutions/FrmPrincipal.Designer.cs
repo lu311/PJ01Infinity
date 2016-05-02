@@ -1,6 +1,6 @@
 ﻿namespace PJ01InfinitySolutions
 {
-    partial class Form1
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Required designer variable.
