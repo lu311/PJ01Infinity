@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PJ01View", "PJ01InfinitySolutions\PJ01View.csproj", "{23F3FE99-6BCF-4DDB-ACC7-F3F9590E52AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PJ01Controller", "PJ01Controller\PJ01Controller.csproj", "{39451F5F-50D1-467A-8E55-579BCA64D65E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PJ01Model", "PJ01Model\PJ01Model.csproj", "{165C0DA6-6544-4A56-893D-646912ACC844}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23F3FE99-6BCF-4DDB-ACC7-F3F9590E52AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F3FE99-6BCF-4DDB-ACC7-F3F9590E52AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F3FE99-6BCF-4DDB-ACC7-F3F9590E52AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F3FE99-6BCF-4DDB-ACC7-F3F9590E52AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39451F5F-50D1-467A-8E55-579BCA64D65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39451F5F-50D1-467A-8E55-579BCA64D65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39451F5F-50D1-467A-8E55-579BCA64D65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39451F5F-50D1-467A-8E55-579BCA64D65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165C0DA6-6544-4A56-893D-646912ACC844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165C0DA6-6544-4A56-893D-646912ACC844}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165C0DA6-6544-4A56-893D-646912ACC844}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165C0DA6-6544-4A56-893D-646912ACC844}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
