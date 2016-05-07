@@ -16,5 +16,16 @@ namespace PJ01InfinitySolutions
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PessoaCadastro pessoaCadastro = new Frm_PessoaCadastro();
+            pessoaCadastro.ShowDialog();
+        }
     }
 }
