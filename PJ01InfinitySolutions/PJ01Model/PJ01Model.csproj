@@ -44,6 +44,12 @@
     <Compile Include="PessoaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PJ01Controller\PJ01Controller.csproj">
+      <Project>{39451f5f-50d1-467a-8e55-579bca64d65e}</Project>
+      <Name>PJ01Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
