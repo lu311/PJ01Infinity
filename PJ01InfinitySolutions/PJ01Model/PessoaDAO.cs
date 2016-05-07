@@ -62,7 +62,7 @@ namespace PJ01Model
 
         private void ALterarPessoa(PessoaDados pessoa)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); 
         }
 
         // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
