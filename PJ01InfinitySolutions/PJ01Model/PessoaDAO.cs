@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PJ01Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -71,7 +72,42 @@ namespace PJ01Model
             string sql = "INSERT INTO PESSOA (";
             sql += " DATACADASTRO, NOME, NOMEFANTASIA, PESSOAFISICAJURIDICA, ";
             sql += " CNPJCPF, IERG, OBS, CATEGORIAID, INATIVO, ENDERECO, COMPLEMENTO, NUMERO, BAIRRO, CIDADE, UF, CEP)";
-            sql += " VALUES(NULL, 'teste 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL); ";
+            sql += " VALUES(@DATACADASTRO, @NOME, @NOMEFANTASIA, @PESSOAFISICAJURIDICA, ";
+            sql += " @CNPJCPF, @IERG, @OBS, @CATEGORIAID, @INATIVO, @ENDERECO, @COMPLEMENTO,";
+            sql += " @NUMERO, @BAIRRO, @CIDADE, @UF, @CEP)";
+
+            sql.Replace("@DATACADASTRO", DateTime.Now.ToString());
+            sql.Replace("@NOME", pessoa.nome);
+            sql.Replace("@NOMEFANTASIA", pessoa.nomeFantasia);
+            sql.Replace("@PESSOAFISICAJURIDICA", pessoa.pessoaFisicaJuridica);
+            sql.Replace("@CNPJCPF", pessoa.cnpjCpf);
+            sql.Replace("@IERG", pessoa.ieRg);
+            sql.Replace("@OBS", pessoa.obs);
+            sql.Replace("@CATEGORIAID", pessoa.categoriaId);
+            sql.Replace("@INATIVO", pessoa.inativo);
+            sql.Replace("@ENDERECO", pessoa.endereco);
+            sql.Replace("@COMPLEMENTO", pessoa.complemento);
+            sql.Replace("@NUMERO", pessoa.numero);
+            sql.Replace("@BAIRRO", pessoa.bairro);
+            sql.Replace("@CIDADE", pessoa.cidade);
+            sql.Replace("@UF", pessoa.uf);
+            sql.Replace("@CEP", pessoa.cep);
+
+            Banco banco = new Banco();
+
+            try
+            {
+                banco.abrirConexaoTransacao();
+                banco.Gravar(sql);
+                banco.Commit();
+                banco.fecharConexao();
+            }            
+            finally
+            {
+                banco.fecharConexao();
+            }
+
+
         }
     }
 }

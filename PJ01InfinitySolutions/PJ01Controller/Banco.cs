@@ -1,7 +1,6 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,6 +105,7 @@ namespace PJ01Controller
         public string Gravar(string pSql)
         {
             comando.CommandText = pSql;
+            
             try
             {
                 comando.ExecuteNonQuery();
@@ -160,5 +160,16 @@ namespace PJ01Controller
                 return 0;
             }
         }
+
+        /// <summary>
+        /// retorna a propriedade que execulta os camando dentro do banco de dados.
+        /// seu uso e para pegar recursos que a clase de Banco não tem disponivel
+        /// </summary>
+        /// <returns></returns>
+        public FbCommand Comando()
+        {
+            return comando;
+        }
+
     }
 }
