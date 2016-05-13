@@ -1,6 +1,7 @@
 ﻿using PJ01Controller;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,13 +102,51 @@ namespace PJ01Model
                 banco.Gravar(sql);
                 banco.Commit();
                 banco.fecharConexao();
-            }            
+            }
+            catch (Exception e)
+            {
+                banco.Rollback();
+                Console.WriteLine("PessoaDao.InserirPessoa erro: " + e.Message);
+            }       
             finally
             {
                 banco.fecharConexao();
             }
 
 
+        }
+
+        // metodo prevado que montara o sql de insert ou update para cadastro de contrato de uma pessoa
+        // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
+        private void InserirPessoa(PessoaDados pessoa, DataTable contato)
+        {        
+            List<string> listSql = new List<string>();
+
+            // recupera as linhas deletadas de uma Datatable e adiciona as mesma um Array de objetos DataRow
+            DataRow[] delRows = contato.Select(null, null, DataViewRowState.Deleted);
+
+            // recupera as linhas Inseridas de uma Datatable e adiciona as mesma um Array de objetos DataRow
+            DataRow[] insertRows = contato.Select(null, null, DataViewRowState.Added);
+
+            // recupera as linhas alteradas de uma Datatable e adiciona as mesma um Array de objetos DataRow
+            DataRow[] changeRows = contato.Select(null, null, DataViewRowState.Added);
+
+            foreach (DataRow row in delRows)
+            {
+                listSql.Add("delete from PESSOACONTATO where CONTATOID = " + row[0].ToString());
+                Console.WriteLine("InserirPessoa.Contato linha deletada: " + row[0].ToString());
+            }
+
+            foreach (DataRow row in insertRows)
+            {
+                string sql = INSERT INTO PESSOACONTATO(PESSOAID, NOME, DEPARTAMENTO, DATAANIVERSARIO, DDD, FONE, OPERADORA, EMAIL)
+                   VALUES(NULL, 'luciano', NULL, NULL, '43', '123', NULL, NULL);
+
+
+
+                listSql.Add("delete from PESSOACONTATO where CONTATOID = " + row[0].ToString());
+                Console.WriteLine("InserirPessoa.Contato linha deletada: " + row[0].ToString());
+            }
         }
     }
 }
