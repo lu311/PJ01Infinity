@@ -11,6 +11,8 @@ namespace PJ01Model
     class PessoaDAO
     {
         public string  msgValidacao { get; set; }
+        Banco banco = new Banco();
+        DataTable tabelaSelect;
 
         /// <summary>
         /// Metodo que verifica e faz algumas validações nos dados da Classe de Pessoa, 
@@ -94,12 +96,18 @@ namespace PJ01Model
             sql.Replace("@UF", pessoa.uf);
             sql.Replace("@CEP", pessoa.cep);
 
-            Banco banco = new Banco();
-
             try
             {
                 banco.abrirConexaoTransacao();
                 banco.Gravar(sql);
+
+                // recupera o ID da pessoa
+                tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
+
+                pessoa.pessoaId = Convert.ToInt32(tabelaSelect.Rows[0][0]);
+
+                InserirContato(pessoa, null);
+
                 banco.Commit();
                 banco.fecharConexao();
             }
@@ -118,7 +126,7 @@ namespace PJ01Model
 
         // metodo prevado que montara o sql de insert ou update para cadastro de contrato de uma pessoa
         // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
-        private void InserirPessoa(PessoaDados pessoa, DataTable contato)
+        private void InserirContato(PessoaDados pessoa, DataTable contato)
         {        
             List<string> listSql = new List<string>();
 
@@ -129,7 +137,7 @@ namespace PJ01Model
             DataRow[] insertRows = contato.Select(null, null, DataViewRowState.Added);
 
             // recupera as linhas alteradas de uma Datatable e adiciona as mesma um Array de objetos DataRow
-            DataRow[] changeRows = contato.Select(null, null, DataViewRowState.Added);
+            DataRow[] updateRows = contato.Select(null, null, DataViewRowState.Added);
 
             foreach (DataRow row in delRows)
             {
@@ -139,13 +147,43 @@ namespace PJ01Model
 
             foreach (DataRow row in insertRows)
             {
-                string sql = INSERT INTO PESSOACONTATO(PESSOAID, NOME, DEPARTAMENTO, DATAANIVERSARIO, DDD, FONE, OPERADORA, EMAIL)
-                   VALUES(NULL, 'luciano', NULL, NULL, '43', '123', NULL, NULL);
+                string sql = "INSERT INTO PESSOACONTATO (PESSOAID, NOME, DEPARTAMENTO, "; 
+                      sql += "DATAANIVERSARIO, DDD, FONE, OPERADORA, EMAIL) ";
+                      sql += "VALUES(@PESSOAID,@NOME,@DEPARTAMENTO,@DATAANIVERSARIO,@DDD,@FONE,@OPERADORA,@EMAIL)";
 
+                sql.Replace("@PESSOAID", pessoa.pessoaId.ToString());
+                sql.Replace("@DEPARTAMENTO", row["DEPARTAMENTO"].ToString());
+                sql.Replace("@DATAANIVERSARIO", row["DATAANIVERSARIO"].ToString());
+                sql.Replace("@DDD", row["DDD"].ToString());
+                sql.Replace("@FONE", row["FONE"].ToString());
+                sql.Replace("@OPERADORA", row["OPERADORA"].ToString());
+                sql.Replace("@EMAIL", row["EMAIL"].ToString());
 
+                listSql.Add(sql);
+                Console.WriteLine("InserirPessoa.Contato linha insert: \n" + sql);
+            }
 
-                listSql.Add("delete from PESSOACONTATO where CONTATOID = " + row[0].ToString());
-                Console.WriteLine("InserirPessoa.Contato linha deletada: " + row[0].ToString());
+            foreach (DataRow row in updateRows)
+            {
+                string sql = "UPDATE PESSOACONTATO set PESSOAID=@PESSOAID, NOME=@NOME, DEPARTAMENTO=@DEPARTAMENTO, ";
+                sql += "DATAANIVERSARIO=@DATAANIVERSARIO, DDD=@DDD, FONE=@FONE, OPERADORA=@OPERADORA, EMAIL=@EMAIL) ";
+                sql += "where CONTATOID = @CONTATOID";
+
+                sql.Replace("@CONTATOID", row["CONTATOID"].ToString());
+                sql.Replace("@DEPARTAMENTO", row["DEPARTAMENTO"].ToString());
+                sql.Replace("@DATAANIVERSARIO", row["DATAANIVERSARIO"].ToString());
+                sql.Replace("@DDD", row["DDD"].ToString());
+                sql.Replace("@FONE", row["FONE"].ToString());
+                sql.Replace("@OPERADORA", row["OPERADORA"].ToString());
+                sql.Replace("@EMAIL", row["EMAIL"].ToString());
+
+                listSql.Add(sql);
+                Console.WriteLine("UpdatePessoa.Contato linha insert: \n" + sql);
+            }
+
+            foreach (string sql in listSql)
+            {
+                banco.Gravar(sql);
             }
         }
     }
