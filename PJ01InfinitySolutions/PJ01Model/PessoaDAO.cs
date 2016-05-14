@@ -59,9 +59,9 @@ namespace PJ01Model
         public void Gravar(PessoaDados pessoa)
         {            
             if (pessoa.pessoaId > 0)
-                InserirPessoa(pessoa);
-            else
                 ALterarPessoa(pessoa);
+            else
+                InserirPessoa(pessoa); 
         }
 
         private void ALterarPessoa(PessoaDados pessoa)
@@ -75,12 +75,12 @@ namespace PJ01Model
             string sql = "INSERT INTO PESSOA (";
             sql += " DATACADASTRO, NOME, NOMEFANTASIA, PESSOAFISICAJURIDICA, ";
             sql += " CNPJCPF, IERG, OBS, CATEGORIAID, INATIVO, ENDERECO, COMPLEMENTO, NUMERO, BAIRRO, CIDADE, UF, CEP)";
-            sql += " VALUES (@DATACADASTRO, @NOME, @NOMEFANTASIA, @PESSOAFISICAJURIDICA, ";
-            sql += " @CNPJCPF, @IERG, @OBS, @CATEGORIAID, @INATIVO, @ENDERECO, @COMPLEMENTO,";
-            sql += " @NUMERO, @BAIRRO, @CIDADE, @UF, @CEP)";
+            sql += " VALUES (@DATACADASTRO, '@NOME', '@NOMEFANTASIA', '@PESSOAFISICAJURIDICA,' ";
+            sql += " '@CNPJCPF', '@IERG', '@OBS', '@CATEGORIAID', '@INATIVO', '@ENDERECO', '@COMPLEMENTO',";
+            sql += " '@NUMERO', '@BAIRRO', '@CIDADE', '@UF', '@CEP')";
 
             sql.Replace("@DATACADASTRO", DateTime.Now.ToString());
-            sql.Replace("@NOME", pessoa.nome);
+            sql.Replace("@NOME", pessoa.nome;
             sql.Replace("@NOMEFANTASIA", pessoa.nomeFantasia);
             sql.Replace("@PESSOAFISICAJURIDICA", pessoa.pessoaFisicaJuridica);
             sql.Replace("@CNPJCPF", pessoa.cnpjCpf);
@@ -149,7 +149,7 @@ namespace PJ01Model
             {
                 string sql = "INSERT INTO PESSOACONTATO (PESSOAID, NOME, DEPARTAMENTO, "; 
                       sql += "DATAANIVERSARIO, DDD, FONE, OPERADORA, EMAIL) ";
-                      sql += "VALUES(@PESSOAID,@NOME,@DEPARTAMENTO,@DATAANIVERSARIO,@DDD,@FONE,@OPERADORA,@EMAIL)";
+                      sql += "VALUES ('@PESSOAID','@NOME','@DEPARTAMENTO','@DATAANIVERSARIO','@DDD','@FONE','@OPERADORA','@EMAIL')";
 
                 sql.Replace("@PESSOAID", pessoa.pessoaId.ToString());
                 sql.Replace("@DEPARTAMENTO", row["DEPARTAMENTO"].ToString());
@@ -165,8 +165,8 @@ namespace PJ01Model
 
             foreach (DataRow row in updateRows)
             {
-                string sql = "UPDATE PESSOACONTATO set PESSOAID=@PESSOAID, NOME=@NOME, DEPARTAMENTO=@DEPARTAMENTO, ";
-                sql += "DATAANIVERSARIO=@DATAANIVERSARIO, DDD=@DDD, FONE=@FONE, OPERADORA=@OPERADORA, EMAIL=@EMAIL) ";
+                string sql = "UPDATE PESSOACONTATO set PESSOAID='@PESSOAID', NOME='@NOME', DEPARTAMENTO='@DEPARTAMENTO', ";
+                sql += "DATAANIVERSARIO='@DATAANIVERSARIO', DDD='@DDD', FONE='@FONE', OPERADORA='@OPERADORA', EMAIL='@EMAIL') ";
                 sql += "where CONTATOID = @CONTATOID";
 
                 sql.Replace("@CONTATOID", row["CONTATOID"].ToString());
@@ -186,5 +186,8 @@ namespace PJ01Model
                 banco.Gravar(sql);
             }
         }
+
+        public 
+
     }
 }

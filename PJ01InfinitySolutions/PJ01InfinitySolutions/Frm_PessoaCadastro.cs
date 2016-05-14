@@ -16,5 +16,10 @@ namespace PJ01InfinitySolutions
         {
             InitializeComponent();
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

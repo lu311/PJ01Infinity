@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,5 +26,6 @@ namespace PJ01Model
         public string cidade { get; set; }
         public string uf { get; set; }
         public string cep { get; set; }
+        public DataTable pessoaContato { get; set; }
     }
 }
