@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    class PessoaDAO
+    public class PessoaDAO
     {
         public string  msgValidacao { get; set; }
         Banco banco = new Banco();
