@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    public class PessoaDados
+    public class PessoaModel
     {
         public int pessoaId { get; set; }
         public DateTime dataCadastro { get; set; }
