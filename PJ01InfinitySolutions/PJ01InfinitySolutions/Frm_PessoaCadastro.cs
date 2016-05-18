@@ -46,13 +46,13 @@ namespace PJ01InfinitySolutions
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            PessoaDados pessoa = new PessoaDados();
+            PessoaModel pessoa = new PessoaModel();
 
             pessoa.pessoaId = Convert.ToInt32(txtCodigo.Text);
             pessoa.nome = txtNome.Text;
             pessoa.endereco = txtEndereco.Text;
             pessoa.complemento = txtComplemento.Text;
-            pesoa.
+     
 
             PessoaDAO dao = new PessoaDAO();
 

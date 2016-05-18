@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39451F5F-50D1-467A-8E55-579BCA64D65E}</ProjectGuid>
+    <ProjectGuid>{CB0392F6-B89B-45D9-8907-DA6736C5FCF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PJ01Controller</RootNamespace>
-    <AssemblyName>PJ01Controller</AssemblyName>
+    <RootNamespace>PJ01AcessoBancoDados</RootNamespace>
+    <AssemblyName>PJ01AcessoBancoDados</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>C:\Users\Lu311\Google Drive\PJ01 - Infinity\Banco\DLL de acesso ao banco de dados\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco.cs" />
+    <Compile Include="PessoaCategoriaDAO.cs" />
+    <Compile Include="PessoaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PJ01Model\PJ01Model.csproj">
+      <Project>{165C0DA6-6544-4A56-893D-646912ACC844}</Project>
+      <Name>PJ01Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

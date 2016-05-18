@@ -1,4 +1,5 @@
 ﻿using PJ01Controller;
+using PJ01Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +20,7 @@ namespace PJ01Model
         /// se retorna Verdadeiro (true) os dados estão corretos caso retorne falso deve verificar a propriedade msgValidacao
         /// </summary>
         /// <param name="pessoa"></param>
-        public bool validaDados(PessoaDados pessoa)
+        public bool validaDados(PessoaModel pessoa)
         {
             bool valida = true;
             msgValidacao = string.Empty;
@@ -56,7 +57,7 @@ namespace PJ01Model
         /// faz o processo de monta o SQL que vai a Banco, se o ID = 0 é um novo cadastro caso contrario é uma alteração
         /// </summary>
         /// <param name="pessoa"></param>
-        public void Gravar(PessoaDados pessoa)
+        public void Gravar(PessoaModel pessoa)
         {            
             if (pessoa.pessoaId > 0)
                 InserirPessoa(pessoa);
@@ -64,13 +65,13 @@ namespace PJ01Model
                 ALterarPessoa(pessoa);
         }
 
-        private void ALterarPessoa(PessoaDados pessoa)
+        private void ALterarPessoa(PessoaModel pessoa)
         {
             throw new NotImplementedException(); 
         }
 
         // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
-        private void InserirPessoa(PessoaDados pessoa)
+        private void InserirPessoa(PessoaModel pessoa)
         {
             string sql = "INSERT INTO PESSOA (";
             sql += " DATACADASTRO, NOME, NOMEFANTASIA, PESSOAFISICAJURIDICA, ";
@@ -126,7 +127,7 @@ namespace PJ01Model
 
         // metodo prevado que montara o sql de insert ou update para cadastro de contrato de uma pessoa
         // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
-        private void InserirContato(PessoaDados pessoa, DataTable contato)
+        private void InserirContato(PessoaModel pessoa, DataTable contato)
         {        
             List<string> listSql = new List<string>();
 
