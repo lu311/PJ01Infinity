@@ -54,14 +54,14 @@ namespace PJ01InfinitySolutions
             pessoa.complemento = txtComplemento.Text;
      
 
-            PessoaDAO dao = new PessoaDAO();
+            //PessoaDAO dao = new PessoaDAO();
 
 
-            if (dao.validaDados(pessoa) == false)
-            {
-                MessageBox.Show(dao.msgValidacao);
-                return;
-            }
+            //if (dao.validaDados(pessoa) == false)
+            //{
+            //    MessageBox.Show(dao.msgValidacao);
+            //    return;
+            //}
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
