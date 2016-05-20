@@ -11,29 +11,17 @@ namespace PJ01Model
 {
     public class PessoaDAO
     {
-        public string  msgValidacao { get; set; }
         Banco banco = new Banco();
         DataTable tabelaSelect;
         
-        /// <summary>
-        /// faz o processo de monta o SQL que vai a Banco, se o ID = 0 é um novo cadastro caso contrario é uma alteração
-        /// </summary>
-        /// <param name="pessoa"></param>
-        public void Gravar(PessoaModel pessoa)
-        {            
-            if (pessoa.pessoaId > 0)
-                ALterarPessoa(pessoa);
-            else
-                InserirPessoa(pessoa); 
-        }
-
-        private void ALterarPessoa(PessoaModel pessoa)
+       
+        public void ALterarPessoa(PessoaModel pessoa)
         {
             throw new NotImplementedException(); 
         }
 
         // metodo privado que montara o sql de insert (novos registro) para enviar ao banco de dados
-        private void InserirPessoa(PessoaModel pessoa)
+        public void InserirPessoa(PessoaModel pessoa)
         {
             string sql = "INSERT INTO PESSOA (";
             sql += " DATACADASTRO, NOME, NOMEFANTASIA, PESSOAFISICAJURIDICA, ";
@@ -43,7 +31,7 @@ namespace PJ01Model
             sql += " '@NUMERO', '@BAIRRO', '@CIDADE', '@UF', '@CEP')";
 
             sql.Replace("@DATACADASTRO", DateTime.Now.ToString());
-            sql.Replace("@NOME", pessoa.nome;
+            sql.Replace("@NOME", pessoa.nome);
             sql.Replace("@NOMEFANTASIA", pessoa.nomeFantasia);
             sql.Replace("@PESSOAFISICAJURIDICA", pessoa.pessoaFisicaJuridica);
             sql.Replace("@CNPJCPF", pessoa.cnpjCpf);
@@ -72,7 +60,6 @@ namespace PJ01Model
                 InserirContato(pessoa, null);
 
                 banco.Commit();
-                banco.fecharConexao();
             }
             catch (Exception e)
             {
@@ -150,7 +137,45 @@ namespace PJ01Model
             }
         }
 
-        public 
+        public DataTable PesquisaPessoa(int id)
+        {
+            try
+            {
+                banco.abrirConexao();
+                tabelaSelect = banco.Select("SELECT * from pessoa where PESSOAID = " + id);
+                banco.fecharConexao();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("PessoaDao.PesquisaPessoa erro: " + e.Message);
+            }
+            finally
+            {
+                banco.fecharConexao();
+            }
 
+            return tabelaSelect;
+        }
+
+        public DataTable PesquisaContatos(int id)
+        {
+            try
+            {
+                banco.abrirConexao();              
+                tabelaSelect = banco.Select("SELECT * from pessoacontato where PESSOAID = "+id);
+                banco.fecharConexao();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("PessoaDao.PesquisaContatos erro: " + e.Message);
+            }
+            finally
+            {
+                banco.fecharConexao();
+            }
+
+
+            return tabelaSelect;
+        }
     }
 }

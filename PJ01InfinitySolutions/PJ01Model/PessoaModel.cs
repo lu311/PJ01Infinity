@@ -26,6 +26,6 @@ namespace PJ01Model
         public string cidade { get; set; }
         public string uf { get; set; }
         public string cep { get; set; }
-        public DataTable pessoaContato { get; set; }
+        public DataTable pessoaContatos { get; set; }
     }
 }
