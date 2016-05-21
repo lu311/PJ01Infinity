@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    public class PessoaDados
+    public class PessoaModel
     {
         public int pessoaId { get; set; }
         public DateTime dataCadastro { get; set; }
@@ -16,7 +17,7 @@ namespace PJ01Model
         public string cnpjCpf { get; set; }
         public string ieRg { get; set; }
         public string obs { get; set; }
-        public string categoriaId { get; set; }
+        public int categoriaId { get; set; }
         public string inativo { get; set; }
         public string endereco { get; set; }
         public string complemento { get; set; }
@@ -25,5 +26,6 @@ namespace PJ01Model
         public string cidade { get; set; }
         public string uf { get; set; }
         public string cep { get; set; }
+        public DataTable pessoaContatos { get; set; }
     }
 }

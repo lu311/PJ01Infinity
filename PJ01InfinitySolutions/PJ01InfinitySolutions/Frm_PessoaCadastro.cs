@@ -1,12 +1,6 @@
-﻿using PJ01Model;
+﻿using PJ01Controller;
+using PJ01Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PJ01InfinitySolutions
@@ -40,32 +34,42 @@ namespace PJ01InfinitySolutions
             txtEndereco.Clear();
             txtNumero.Clear();
             txtUF.Clear();
-            txtDocumento2.Clear();
-      
+            txtDocumento2.Clear();      
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            PessoaDados pessoa = new PessoaDados();
+            PessoaModel pessoa = new PessoaModel();
+            PessoaControle pc = new PessoaControle();
 
             pessoa.pessoaId = Convert.ToInt32(txtCodigo.Text);
             pessoa.nome = txtNome.Text;
             pessoa.endereco = txtEndereco.Text;
             pessoa.complemento = txtComplemento.Text;
-            pessoa.dataCadastro =Convert.ToString(txtDataCad.);
 
-            PessoaDAO dao = new PessoaDAO();
-
-
-            if (dao.validaDados(pessoa) == false)
+            // valida se alguns atributos
+            if (pc.validaDados(pessoa) == false)
             {
-                MessageBox.Show(dao.msgValidacao);
+                MessageBox.Show(pc.msgValidacao);
                 return;
             }
+
+            // incia o processo de gravar em banco de dados
+            pc.Gravar(pessoa);
+
         }
 
-        private void txtDataCad_TextChanged(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void Frm_PessoaCadastro_Load(object sender, EventArgs e)
+        {
+            PessoaControle pc = new PessoaControle();
+            PessoaModel p = new PessoaModel();
+            p = pc.PesquisaUmaPessoa(1);
+            pc.FormatDataGridPessoa(dgvContatos);
 
         }
     }
