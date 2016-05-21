@@ -46,6 +46,34 @@ namespace PJ01InfinitySolutions
             pessoa.nome = txtNome.Text;
             pessoa.endereco = txtEndereco.Text;
             pessoa.complemento = txtComplemento.Text;
+          //  pessoa.dataCadastro = Convert.ToDateTime(txtDataCad.Text);
+            pessoa.cidade = txtCidade.Text;
+            pessoa.cep = txtCep.Text;
+            pessoa.bairro = txtBairro.Text;
+            pessoa.numero = txtNumero.Text;
+            pessoa.uf = txtUF.Text;
+            pessoa.cnpjCpf =(txtDocumento1.Text);
+            pessoa.ieRg = (txtDocumento2.Text);
+            pessoa.nomeFantasia = txtNomeFantasia.Text;
+
+            if (chkCadastroInativo.Checked)
+                pessoa.inativo = "I";
+
+            else
+                pessoa.inativo = "A";
+
+            if (cmbCategoria.SelectedIndex > -1)
+                pessoa.categoriaId =Convert.ToInt32( cmbCategoria.SelectedValue);
+           else
+            {
+                MessageBox.Show("Selecionar uma Categoria.");
+               // return;
+            }
+            if (rdbFisica.Checked)
+                pessoa.pessoaFisicaJuridica = "F";
+
+            else pessoa.pessoaFisicaJuridica = "J";
+
 
             // valida se alguns atributos
             if (pc.validaDados(pessoa) == false)
@@ -56,6 +84,7 @@ namespace PJ01InfinitySolutions
 
             // incia o processo de gravar em banco de dados
             pc.Gravar(pessoa);
+            MessageBox.Show("GRAVADO COM SUCESSO");
 
         }
 
