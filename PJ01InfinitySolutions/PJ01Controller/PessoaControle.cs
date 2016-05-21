@@ -1,5 +1,4 @@
 ﻿using PJ01Model;
-using System;
 using System.Data;
 using System.Windows.Forms;
 
