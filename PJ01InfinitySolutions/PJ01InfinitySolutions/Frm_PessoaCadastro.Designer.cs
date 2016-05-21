@@ -361,6 +361,7 @@
             this.txtDataCad.Name = "txtDataCad";
             this.txtDataCad.Size = new System.Drawing.Size(100, 22);
             this.txtDataCad.TabIndex = 18;
+            this.txtDataCad.TextChanged += new System.EventHandler(this.txtDataCad_TextChanged);
             // 
             // txtCodigo
             // 
@@ -464,7 +465,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(848, 645);
+            this.tabPage2.Size = new System.Drawing.Size(876, 566);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;

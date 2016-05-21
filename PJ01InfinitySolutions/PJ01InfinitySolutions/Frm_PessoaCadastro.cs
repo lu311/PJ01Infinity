@@ -52,7 +52,7 @@ namespace PJ01InfinitySolutions
             pessoa.nome = txtNome.Text;
             pessoa.endereco = txtEndereco.Text;
             pessoa.complemento = txtComplemento.Text;
-            pesoa.
+            pessoa.dataCadastro =Convert.ToString(txtDataCad.);
 
             PessoaDAO dao = new PessoaDAO();
 
@@ -62,6 +62,11 @@ namespace PJ01InfinitySolutions
                 MessageBox.Show(dao.msgValidacao);
                 return;
             }
+        }
+
+        private void txtDataCad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
