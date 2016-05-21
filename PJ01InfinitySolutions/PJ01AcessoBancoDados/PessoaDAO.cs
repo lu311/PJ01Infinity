@@ -26,26 +26,9 @@ namespace PJ01Model
             string sql = "INSERT INTO PESSOA (";
             sql += " DATACADASTRO, NOME, NOMEFANTASIA, PESSOAFISICAJURIDICA, ";
             sql += " CNPJCPF, IERG, OBS, CATEGORIAID, INATIVO, ENDERECO, COMPLEMENTO, NUMERO, BAIRRO, CIDADE, UF, CEP)";
-            sql += " VALUES (@DATACADASTRO, '@NOME', '@NOMEFANTASIA', '@PESSOAFISICAJURIDICA,' ";
-            sql += " '@CNPJCPF', '@IERG', '@OBS', '@CATEGORIAID', '@INATIVO', '@ENDERECO', '@COMPLEMENTO',";
-            sql += " '@NUMERO', '@BAIRRO', '@CIDADE', '@UF', '@CEP')";
-
-            sql.Replace("@DATACADASTRO", DateTime.Now.ToString());
-            sql.Replace("@NOME", pessoa.nome);
-            sql.Replace("@NOMEFANTASIA", pessoa.nomeFantasia);
-            sql.Replace("@PESSOAFISICAJURIDICA", pessoa.pessoaFisicaJuridica);
-            sql.Replace("@CNPJCPF", pessoa.cnpjCpf);
-            sql.Replace("@IERG", pessoa.ieRg);
-            sql.Replace("@OBS", pessoa.obs);
-            sql.Replace("@CATEGORIAID", pessoa.categoriaId);
-            sql.Replace("@INATIVO", pessoa.inativo);
-            sql.Replace("@ENDERECO", pessoa.endereco);
-            sql.Replace("@COMPLEMENTO", pessoa.complemento);
-            sql.Replace("@NUMERO", pessoa.numero);
-            sql.Replace("@BAIRRO", pessoa.bairro);
-            sql.Replace("@CIDADE", pessoa.cidade);
-            sql.Replace("@UF", pessoa.uf);
-            sql.Replace("@CEP", pessoa.cep);
+            sql += " VALUES (CURRENT_DATE, '" + pessoa.nome+ "', '" + pessoa.nomeFantasia + "', '" + pessoa.pessoaFisicaJuridica + "', ";
+            sql += " '" + pessoa.cnpjCpf + "', '" + pessoa.ieRg + "','" + pessoa.obs + "'," + pessoa.categoriaId + ", '" + pessoa.inativo + "', '" + pessoa.endereco + "',";
+            sql += " '" + pessoa.complemento + "','" + pessoa.numero + "','" + pessoa.bairro+ "','" + pessoa.cidade + "', '" + pessoa.uf+ "','" + pessoa.cep + "')";
 
             try
             {
@@ -53,13 +36,13 @@ namespace PJ01Model
                 banco.Gravar(sql);
 
                 // recupera o ID da pessoa
-                tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
+               // tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
 
-                pessoa.pessoaId = Convert.ToInt32(tabelaSelect.Rows[0][0]);
+                //pessoa.pessoaId = Convert.ToInt32(tabelaSelect.Rows[0][0]);
 
-                InserirContato(pessoa, null);
+               // InserirContato(pessoa, null);
 
-                banco.Commit();
+                banco.Commit();                
             }
             catch (Exception e)
             {

@@ -1,26 +1,22 @@
 ﻿using PJ01Model;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PJ01Controller
 {
-    class PessoaControle
+    public class PessoaControle
     {
         public string msgValidacao { get; set; }
         PessoaDAO dao; 
         PessoaModel pessoa;
 
         // contrutor da classe inicializar alguns objetos
-        PessoaControle()
+        public PessoaControle()
         {
-           dao = new PessoaDAO();
-           pessoa = new PessoaModel();
-        }           
+            dao = new PessoaDAO();
+            pessoa = new PessoaModel();
+        }
 
         /// <summary>
         /// Metodo que verifica e faz algumas validações nos dados da Classe de Pessoa, 
@@ -83,15 +79,15 @@ namespace PJ01Controller
             DataTable t;
             t = dao.PesquisaPessoa(pessoaId);
             
-            pessoa.pessoaId = Convert.ToInt32(t.Columns["PESSOAID"]);
-            pessoa.dataCadastro = Convert.ToDateTime(t.Columns["DATACADASTRO"]);
+          //  pessoa.pessoaId = Convert.ToInt32(t.Columns["PESSOAID"].ToString());
+          //  pessoa.dataCadastro = Convert.ToDateTime(t.Columns["DATACADASTRO"]);
             pessoa.nome = t.Columns["NOME"].ToString();
             pessoa.nomeFantasia = t.Columns["NOMEFANTASIA"].ToString();
             pessoa.pessoaFisicaJuridica = t.Columns["PESSOAFISICAJURIDICA"].ToString();
             pessoa.cnpjCpf = t.Columns["CNPJCPF"].ToString();
             pessoa.ieRg = t.Columns["IERG"].ToString();
             pessoa.obs = t.Columns["OBS"].ToString();
-            pessoa.categoriaId = t.Columns["CATEGORIAID"].ToString();
+          //  pessoa.categoriaId = Convert.ToInt32(t.Columns["CATEGORIAID"].ToString());
             pessoa.inativo = t.Columns["INATIVO"].ToString();
             pessoa.endereco = t.Columns["ENDERECO"].ToString();
             pessoa.complemento = t.Columns["COMPLEMENTO"].ToString();

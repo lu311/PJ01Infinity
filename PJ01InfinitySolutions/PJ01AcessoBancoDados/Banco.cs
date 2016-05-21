@@ -78,7 +78,8 @@ namespace PJ01Controller
         public void abrirConexaoTransacao()
         {
             conexao.Open();
-            AbrirTransacao();
+            transacao = conexao.BeginTransaction();
+            comando.Transaction = transacao;
         }
 
         /// <summary>

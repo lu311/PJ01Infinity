@@ -35,7 +35,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvContatos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEndereco = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContatos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@
             this.panel1.Controls.Add(this.btnNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 67);
             this.panel1.TabIndex = 0;
@@ -95,7 +95,7 @@
             this.btnExcluir.Image = global::PJ01InfinitySolutions.Properties.Resources.index_delete;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluir.Location = new System.Drawing.Point(234, 4);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(108, 57);
             this.btnExcluir.TabIndex = 2;
@@ -108,7 +108,7 @@
             this.btnGravar.Image = global::PJ01InfinitySolutions.Properties.Resources.disk_green;
             this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGravar.Location = new System.Drawing.Point(119, 4);
-            this.btnGravar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGravar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(108, 57);
             this.btnGravar.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.btnNovo.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_add;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovo.Location = new System.Drawing.Point(4, 4);
-            this.btnNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNovo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(108, 57);
             this.btnNovo.TabIndex = 0;
@@ -173,7 +173,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvContatos);
             this.groupBox2.Location = new System.Drawing.Point(9, 394);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(590, 149);
@@ -181,14 +181,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contato(s)";
             // 
-            // dataGridView1
+            // dgvContatos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(584, 127);
-            this.dataGridView1.TabIndex = 39;
+            this.dgvContatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvContatos.Location = new System.Drawing.Point(3, 19);
+            this.dgvContatos.Name = "dgvContatos";
+            this.dgvContatos.Size = new System.Drawing.Size(584, 127);
+            this.dgvContatos.TabIndex = 39;
             // 
             // groupBox1
             // 
@@ -450,7 +450,7 @@
             // 
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(9, 32);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(140, 24);
             this.cmbCategoria.TabIndex = 11;
@@ -480,7 +480,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(9, 126);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(498, 23);
@@ -488,10 +488,10 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(876, 565);
+            this.tabPage2.Size = new System.Drawing.Size(876, 552);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Comentários";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -504,15 +504,16 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_PessoaCadastro";
             this.Text = "Pessoa Cadastro";
+            this.Load += new System.EventHandler(this.Frm_PessoaCadastro_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContatos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -535,7 +536,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvContatos;
         private System.Windows.Forms.TextBox txtCep;
         private System.Windows.Forms.TextBox txtUF;
         private System.Windows.Forms.Label label14;

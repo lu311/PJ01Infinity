@@ -17,7 +17,7 @@ namespace PJ01Model
         public string cnpjCpf { get; set; }
         public string ieRg { get; set; }
         public string obs { get; set; }
-        public string categoriaId { get; set; }
+        public int categoriaId { get; set; }
         public string inativo { get; set; }
         public string endereco { get; set; }
         public string complemento { get; set; }
