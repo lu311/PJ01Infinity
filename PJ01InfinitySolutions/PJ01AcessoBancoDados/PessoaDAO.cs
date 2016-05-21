@@ -44,7 +44,7 @@ namespace PJ01Model
                 Console.WriteLine("pessoaid "+ pessoa.pessoaId);
                
 
-               // InserirContato(pessoa, null);
+                InserirContato(pessoa, pessoa.pessoaContatos);
 
               //  banco.Commit();                
             }
@@ -74,7 +74,7 @@ namespace PJ01Model
             DataRow[] insertRows = contato.Select(null, null, DataViewRowState.Added);
 
             // recupera as linhas alteradas de uma Datatable e adiciona as mesma um Array de objetos DataRow
-            DataRow[] updateRows = contato.Select(null, null, DataViewRowState.Added);
+            DataRow[] updateRows = contato.Select(null, null, DataViewRowState.ModifiedCurrent);
 
             foreach (DataRow row in delRows)
             {

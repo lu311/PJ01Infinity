@@ -7,6 +7,9 @@ namespace PJ01InfinitySolutions
 {
     public partial class Frm_PessoaCadastro : Form
     {
+
+        PessoaModel pessoa;
+
         public Frm_PessoaCadastro()
         {
             InitializeComponent();
@@ -39,8 +42,11 @@ namespace PJ01InfinitySolutions
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            PessoaModel pessoa = new PessoaModel();
+            //PessoaModel pessoa = new PessoaModel();
             PessoaControle pc = new PessoaControle();
+
+
+           // pessoa.pessoaContatos = dgvContatos.DataSource;
 
             pessoa.pessoaId = Convert.ToInt32(txtCodigo.Text);
             pessoa.nome = txtNome.Text;
@@ -96,10 +102,9 @@ namespace PJ01InfinitySolutions
         private void Frm_PessoaCadastro_Load(object sender, EventArgs e)
         {
             PessoaControle pc = new PessoaControle();
-            PessoaModel p = new PessoaModel();
-            p = pc.PesquisaUmaPessoa(1);
+            pessoa = new PessoaModel();
+            pessoa = pc.PesquisaUmaPessoa(1);
             pc.FormatDataGridPessoa(dgvContatos);
-
         }
     }
 }
