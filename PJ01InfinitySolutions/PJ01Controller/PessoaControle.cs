@@ -121,6 +121,9 @@ namespace PJ01Controller
             dataGrid.Columns["FONE"].HeaderText = "Telefone";
             dataGrid.Columns["OPERADORA"].HeaderText = "Operadora";
             dataGrid.Columns["EMAIL"].HeaderText = "E-Mail";
+
+            dataGrid.Columns["CONTATOID"].Visible = false;
+            dataGrid.Columns["PESSOAID"].Visible = false;
         }
     }
 }
