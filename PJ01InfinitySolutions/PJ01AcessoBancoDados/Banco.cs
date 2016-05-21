@@ -79,7 +79,7 @@ namespace PJ01Controller
         {
             conexao.Open();
             transacao = conexao.BeginTransaction();
-            comando.Transaction = transacao;
+            comando.Transaction = transacao;            
         }
 
         /// <summary>
@@ -104,22 +104,21 @@ namespace PJ01Controller
         /// </summary>
         /// <param name="pSql"></param>
         /// <returns></returns>
-        public string Gravar(string pSql)
+        public void Gravar(string pSql)
         {
             comando.CommandText = pSql;
             
             try
             {
-                comando.ExecuteNonQuery();
-                return "";
+                comando.ExecuteNonQuery();                
             }
             catch (FbException ex)
             {
-                return ex.Message;
+                throw;
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                throw;
             }
         }
 
@@ -133,6 +132,7 @@ namespace PJ01Controller
             try
             {
                 DataTable t = new DataTable();
+
                 da.SelectCommand.CommandText = pSelect;
                 da.Fill(t);
                 return t;

@@ -35,18 +35,22 @@ namespace PJ01Model
                 banco.abrirConexaoTransacao();
                 banco.Gravar(sql);
 
-                // recupera o ID da pessoa
-               // tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
+                banco.Commit();
 
-                //pessoa.pessoaId = Convert.ToInt32(tabelaSelect.Rows[0][0]);
+                // recupera o ID da pessoa
+                tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
+                Console.WriteLine("row "+tabelaSelect.Rows[0][0].ToString());
+                pessoa.pessoaId = Convert.ToInt32(tabelaSelect.Rows[0][0].ToString());
+                Console.WriteLine("pessoaid "+ pessoa.pessoaId);
+               
 
                // InserirContato(pessoa, null);
 
-                banco.Commit();                
+              //  banco.Commit();                
             }
             catch (Exception e)
             {
-                banco.Rollback();
+                banco.Rollback();                
                 Console.WriteLine("PessoaDao.InserirPessoa erro: " + e.Message);
             }       
             finally
