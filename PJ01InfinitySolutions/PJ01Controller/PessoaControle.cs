@@ -1,4 +1,5 @@
 ﻿using PJ01Model;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -62,7 +63,7 @@ namespace PJ01Controller
         public void Gravar(PessoaModel pessoa)
         {           
             if (pessoa.pessoaId > 0)
-               dao.ALterarPessoa(pessoa);
+               dao.AlterarPessoa(pessoa);
             else
                dao.InserirPessoa(pessoa);
         }
@@ -77,25 +78,27 @@ namespace PJ01Controller
             // pesquisa a pessoa
             DataTable t;
             t = dao.PesquisaPessoa(pessoaId);
-            
-          //  pessoa.pessoaId = Convert.ToInt32(t.Columns["PESSOAID"].ToString());
-          //  pessoa.dataCadastro = Convert.ToDateTime(t.Columns["DATACADASTRO"]);
-            pessoa.nome = t.Columns["NOME"].ToString();
-            pessoa.nomeFantasia = t.Columns["NOMEFANTASIA"].ToString();
-            pessoa.pessoaFisicaJuridica = t.Columns["PESSOAFISICAJURIDICA"].ToString();
-            pessoa.cnpjCpf = t.Columns["CNPJCPF"].ToString();
-            pessoa.ieRg = t.Columns["IERG"].ToString();
-            pessoa.obs = t.Columns["OBS"].ToString();
-          //  pessoa.categoriaId = Convert.ToInt32(t.Columns["CATEGORIAID"].ToString());
-            pessoa.inativo = t.Columns["INATIVO"].ToString();
-            pessoa.endereco = t.Columns["ENDERECO"].ToString();
-            pessoa.complemento = t.Columns["COMPLEMENTO"].ToString();
-            pessoa.numero = t.Columns["NUMERO"].ToString();
-            pessoa.bairro = t.Columns["BAIRRO"].ToString();
-            pessoa.cidade = t.Columns["CIDADE"].ToString();
-            pessoa.uf = t.Columns["UF"].ToString();
-            pessoa.cep = t.Columns["CEP"].ToString();
 
+            if (t.Rows.Count > 0)
+            {
+                pessoa.pessoaId = Convert.ToInt32(t.Rows[0]["PESSOAID"].ToString());
+                pessoa.dataCadastro = Convert.ToDateTime(t.Rows[0]["DATACADASTRO"]);
+                pessoa.nome = t.Rows[0]["NOME"].ToString();
+                pessoa.nomeFantasia = t.Rows[0]["NOMEFANTASIA"].ToString();
+                pessoa.pessoaFisicaJuridica = t.Rows[0]["PESSOAFISICAJURIDICA"].ToString();
+                pessoa.cnpjCpf = t.Rows[0]["CNPJCPF"].ToString();
+                pessoa.ieRg = t.Rows[0]["IERG"].ToString();
+                pessoa.obs = t.Rows[0]["OBS"].ToString();
+                pessoa.categoriaId = Convert.ToInt32(t.Rows[0]["CATEGORIAID"].ToString());
+                pessoa.inativo = t.Rows[0]["INATIVO"].ToString();
+                pessoa.endereco = t.Rows[0]["ENDERECO"].ToString();
+                pessoa.complemento = t.Rows[0]["COMPLEMENTO"].ToString();
+                pessoa.numero = t.Rows[0]["NUMERO"].ToString();
+                pessoa.bairro = t.Rows[0]["BAIRRO"].ToString();
+                pessoa.cidade = t.Rows[0]["CIDADE"].ToString();
+                pessoa.uf = t.Rows[0]["UF"].ToString();
+                pessoa.cep = t.Rows[0]["CEP"].ToString();
+            }
             // pesquisa os contatos da pessoa
 
             pessoa.pessoaContatos = dao.PesquisaContatos(pessoaId);

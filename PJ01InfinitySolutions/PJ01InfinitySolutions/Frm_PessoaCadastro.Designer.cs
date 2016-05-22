@@ -176,7 +176,7 @@
             this.groupBox2.Controls.Add(this.dgvContatos);
             this.groupBox2.Location = new System.Drawing.Point(9, 394);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(590, 149);
+            this.groupBox2.Size = new System.Drawing.Size(842, 149);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contato(s)";
@@ -187,7 +187,7 @@
             this.dgvContatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvContatos.Location = new System.Drawing.Point(3, 19);
             this.dgvContatos.Name = "dgvContatos";
-            this.dgvContatos.Size = new System.Drawing.Size(584, 127);
+            this.dgvContatos.Size = new System.Drawing.Size(836, 127);
             this.dgvContatos.TabIndex = 39;
             // 
             // groupBox1
