@@ -8,39 +8,13 @@ namespace PJ01InfinitySolutions
     public partial class Frm_PessoaCadastro : Form
     {
 
-        PessoaModel pessoa;
         PessoaControle pc = new PessoaControle();
+        PessoaModel pessoa;
         int pessoaIdPesquisa = 35;
 
         public Frm_PessoaCadastro()
         {
             InitializeComponent();
-        }
-
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            rdbFisica.Checked = true;
-            cmbCategoria.SelectedItem = -1;
-            chkCadastroInativo.Checked = false;
-            txtCodigo.Clear();
-            txtCodigo.Text = "0";
-            txtNome.Clear();
-            txtNomeFantasia.Clear();
-            txtDocumento1.Clear();
-            txtComplemento.Clear();
-            txtDataCad.Clear();
-            txtCidade.Clear();
-            txtCep.Clear();
-            txtBairro.Clear();
-            txtEndereco.Clear();
-            txtNumero.Clear();
-            txtUF.Clear();
-            txtDocumento2.Clear();
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -57,6 +31,7 @@ namespace PJ01InfinitySolutions
             pessoa.cnpjCpf = (txtDocumento1.Text);
             pessoa.ieRg = (txtDocumento2.Text);
             pessoa.nomeFantasia = txtNomeFantasia.Text;
+            pessoa.obs = txtObs.Text;
 
             if (chkCadastroInativo.Checked)
                 pessoa.inativo = "I";
@@ -87,19 +62,53 @@ namespace PJ01InfinitySolutions
             // incia o processo de gravar em banco de dados
             pc.Gravar(pessoa);
             MessageBox.Show("GRAVADO COM SUCESSO");
+            LimpaTela();
+        }
 
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            LimpaTela();
+        }
+
+        private void LimpaTela()
+        {
+            chkCadastroInativo.Checked = false;
+            cmbCategoria.SelectedItem = -1;
+            rdbFisica.Checked = true;
+            txtBairro.Clear();
+            txtCep.Clear();
+            txtCidade.Clear();
+            txtCodigo.Clear();
+            txtCodigo.Text = "0";
+            txtComplemento.Clear();
+            txtDataCad.Clear();
+            txtDocumento1.Clear();
+            txtDocumento2.Clear();
+            txtEndereco.Clear();
+            txtNome.Clear();
+            txtNomeFantasia.Clear();
+            txtNumero.Clear();
+            txtUF.Clear();
+            txtObs.Clear();
+            dgvContatos.DataSource = null;
+            tabControl1.TabIndex = 0;
+            pessoaIdPesquisa = 0;
+            PesquisaPessoa();
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void Frm_PessoaCadastro_Load(object sender, EventArgs e)
+        {
+            PesquisaPessoa();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
-
-        private void Frm_PessoaCadastro_Load(object sender, EventArgs e)
-        {
-            PesquisaPessoa();
-        }
-
         private void PesquisaPessoa()
         {
             pessoa = new PessoaModel();
@@ -108,11 +117,12 @@ namespace PJ01InfinitySolutions
             {
                 pessoa = pc.PesquisaUmaPessoa(pessoaIdPesquisa);
                 pc.FormatDataGridPessoa(dgvContatos);
+                pc.PesquisaCategorias(cmbCategoria);
 
                 txtCodigo.Text = pessoa.pessoaId.ToString();
-                txtDataCad.Text = pessoa.dataCadastro.ToString().Substring(0,10);
+                txtDataCad.Text = pessoa.dataCadastro.ToString().Substring(0, 10);
                 txtNome.Text = pessoa.nome;
-                pessoa.endereco = txtEndereco.Text;
+                txtEndereco.Text = pessoa.endereco;
                 txtComplemento.Text = pessoa.complemento;
                 txtCidade.Text = pessoa.cidade;
                 txtCep.Text = pessoa.cep;
@@ -122,6 +132,7 @@ namespace PJ01InfinitySolutions
                 txtDocumento1.Text = pessoa.cnpjCpf;
                 txtDocumento2.Text = pessoa.ieRg;
                 txtNomeFantasia.Text = pessoa.nomeFantasia;
+                txtObs.Text = pessoa.obs;
 
                 if (pessoa.inativo == "I")
                     chkCadastroInativo.Checked = true;
@@ -133,13 +144,19 @@ namespace PJ01InfinitySolutions
                 if (pessoa.pessoaFisicaJuridica == "F")
                     rdbFisica.Checked = true;
                 else
-                    rdbJuridica.Checked = true; ;
+                    rdbJuridica.Checked = true;
             }
             else
             {
                 pessoa = pc.PesquisaUmaPessoa(0);
                 pc.FormatDataGridPessoa(dgvContatos);
+                pc.PesquisaCategorias(cmbCategoria);
             }
+        }
+
+        private void txtDocumento1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

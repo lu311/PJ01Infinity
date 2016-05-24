@@ -8,7 +8,7 @@ namespace PJ01Controller
     public class PessoaControle
     {
         public string msgValidacao { get; set; }
-        PessoaDAO dao; 
+        PessoaDAO dao;
         PessoaModel pessoa;
 
         // contrutor da classe inicializar alguns objetos
@@ -61,11 +61,11 @@ namespace PJ01Controller
         /// </summary>
         /// <param name="pessoa"></param>
         public void Gravar(PessoaModel pessoa)
-        {           
+        {
             if (pessoa.pessoaId > 0)
-               dao.AlterarPessoa(pessoa);
+                dao.AlterarPessoa(pessoa);
             else
-               dao.InserirPessoa(pessoa);
+                dao.InserirPessoa(pessoa);
         }
 
         /// <summary>
@@ -124,9 +124,22 @@ namespace PJ01Controller
             dataGrid.Columns["FONE"].HeaderText = "Telefone";
             dataGrid.Columns["OPERADORA"].HeaderText = "Operadora";
             dataGrid.Columns["EMAIL"].HeaderText = "E-Mail";
+            dataGrid.Columns["EMAIL"].Width = 300;
 
             dataGrid.Columns["CONTATOID"].Visible = false;
             dataGrid.Columns["PESSOAID"].Visible = false;
+        }
+
+        public void PesquisaCategorias(ComboBox combo)
+        {
+
+            DataTable t;
+            t = dao.PesquisaCategoriasPessoa();
+
+            combo.DataSource = t;
+            combo.ValueMember = "categoriaid";
+            combo.DisplayMember = "categoria";
+
         }
     }
 }

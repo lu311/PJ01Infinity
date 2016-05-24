@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PJ01Model
 {
@@ -23,7 +25,7 @@ namespace PJ01Model
              + "PESSOAFISICAJURIDICA='" + pessoa.pessoaFisicaJuridica + "', "
              + "CNPJCPF='" + pessoa.cnpjCpf + "',"
              + "IERG='" + pessoa.ieRg + "',"
-             + "OBS='" + pessoa.obs + "',"
+             + "OBS='" + Regex.Replace(pessoa.obs, @"[\u2018\u2019\u201a\u201b\u0022\u201c\u201d\u201e\u201f\u301d\u301e\u301f]", "") + "',"
              + "CATEGORIAID=" + pessoa.categoriaId + ","
              + "INATIVO='" + pessoa.inativo + "',"
              + "ENDERECO='" + pessoa.endereco + "',"
@@ -63,12 +65,8 @@ namespace PJ01Model
 
             try
             {
-                // banco.abrirConexaoTransacao();
-
-                banco.abrirConexao();
+                banco.abrirConexaoTransacao();
                 banco.Gravar(sql);
-
-                // banco.Commit();
 
                 // recupera o ID da pessoa
                 tabelaSelect = banco.Select("SELECT GEN_ID(GEN_PESSOA_ID, 0) as PESSOAID FROM RDB$DATABASE");
@@ -79,11 +77,11 @@ namespace PJ01Model
                 // banco.abrirConexaoTransacao();
                 InserirContato(pessoa.pessoaId, pessoa.pessoaContatos);
 
-                // banco.Commit();                
+                banco.Commit();
             }
             catch (Exception e)
             {
-                // banco.Rollback();
+                banco.Rollback();
                 Console.WriteLine("PessoaDao.InserirPessoa erro: " + e.Message);
             }
             finally
@@ -162,13 +160,17 @@ namespace PJ01Model
             }
         }
 
+        /// <summary>
+        /// Pesquisa em banco de dados uma pessoa utilizando o ID como base da busca.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DataTable PesquisaPessoa(int id)
         {
             try
             {
                 banco.abrirConexao();
                 tabelaSelect = banco.Select("SELECT * from pessoa where PESSOAID = " + id);
-                banco.fecharConexao();
             }
             catch (Exception e)
             {
@@ -182,13 +184,17 @@ namespace PJ01Model
             return tabelaSelect;
         }
 
+        /// <summary>
+        ///  Pesquisa em banco de dados os contatos de uma pessoa utilizando o ID da pessoa como base da busca.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DataTable PesquisaContatos(int id)
         {
             try
             {
                 banco.abrirConexao();
                 tabelaSelect = banco.Select("SELECT * from pessoacontato where PESSOAID = " + id);
-                banco.fecharConexao();
             }
             catch (Exception e)
             {
@@ -199,6 +205,28 @@ namespace PJ01Model
                 banco.fecharConexao();
             }
 
+            return tabelaSelect;
+        }
+
+        /// <summary>
+        /// Retorna os tipos de categoria que estão no banco de dados.
+        /// </summary>
+        /// <returns></returns>
+        public DataTable PesquisaCategoriasPessoa()
+        {
+            try
+            {
+                banco.abrirConexao();
+                tabelaSelect = banco.Select("SELECT * from PESSOACATEGORIA order by CATEGORIA");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("PessoaDao.PesquisaCategoriasPessoa erro: " + e.Message);
+            }
+            finally
+            {
+                banco.fecharConexao();
+            }
 
             return tabelaSelect;
         }

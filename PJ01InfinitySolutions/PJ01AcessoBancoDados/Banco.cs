@@ -77,7 +77,7 @@ namespace PJ01Controller
         /// </summary>
         public void abrirConexaoTransacao()
         {
-            conexao.Open();
+            abrirConexao();
             transacao = conexao.BeginTransaction();
             comando.Transaction = transacao;            
         }
@@ -87,7 +87,7 @@ namespace PJ01Controller
         /// </summary>
         public void Commit()
         {
-            comando.Transaction.Commit();
+            transacao.Commit();
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace PJ01Controller
         /// </summary>
         public void Rollback()
         {
-            comando.Transaction.Rollback();
+            transacao.Rollback();
         }
 
         /// <summary>
@@ -112,11 +112,11 @@ namespace PJ01Controller
             {
                 comando.ExecuteNonQuery();                
             }
-            catch (FbException ex)
+            catch (FbException)
             {
                 throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
