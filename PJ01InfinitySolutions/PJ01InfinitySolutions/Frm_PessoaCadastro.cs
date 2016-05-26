@@ -10,7 +10,7 @@ namespace PJ01InfinitySolutions
 
         PessoaControle pc = new PessoaControle();
         PessoaModel pessoa;
-        int pessoaIdPesquisa = 33;
+        int pessoaIdPesquisa = 32;
 
         public Frm_PessoaCadastro()
         {
@@ -186,7 +186,7 @@ namespace PJ01InfinitySolutions
             if (txtCodigo.Text != "0")
             {
                 DialogResult opcao = MessageBox.Show("Deseja excluir este cadastro? \n Após confirmação a tela será fechada.", 
-                    "Excluir cadastro", MessageBoxButtons.YesNo);
+                    "Excluir cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (opcao == DialogResult.Yes)
                 {
