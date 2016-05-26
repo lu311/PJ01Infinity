@@ -34,6 +34,11 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDocumento2 = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDocumento1 = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvContatos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,10 +56,6 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtDocumento2 = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDocumento1 = new System.Windows.Forms.MaskedTextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtNomeFantasia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDataCad = new System.Windows.Forms.TextBox();
@@ -69,16 +70,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContatos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -106,6 +106,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnGravar
             // 
@@ -172,6 +173,52 @@
             this.tabPage1.Text = "Dados";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtDocumento2);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtDocumento1);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(9, 156);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(230, 149);
+            this.groupBox3.TabIndex = 42;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Documentos";
+            // 
+            // txtDocumento2
+            // 
+            this.txtDocumento2.Location = new System.Drawing.Point(19, 94);
+            this.txtDocumento2.Name = "txtDocumento2";
+            this.txtDocumento2.Size = new System.Drawing.Size(187, 23);
+            this.txtDocumento2.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 16);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "CPF ou CNPJ";
+            // 
+            // txtDocumento1
+            // 
+            this.txtDocumento1.Location = new System.Drawing.Point(19, 43);
+            this.txtDocumento1.Name = "txtDocumento1";
+            this.txtDocumento1.Size = new System.Drawing.Size(183, 23);
+            this.txtDocumento1.TabIndex = 22;
+            this.txtDocumento1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDocumento1_MaskInputRejected);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 16);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "RG ou IE";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvContatos);
@@ -190,6 +237,9 @@
             this.dgvContatos.Name = "dgvContatos";
             this.dgvContatos.Size = new System.Drawing.Size(836, 210);
             this.dgvContatos.TabIndex = 39;
+            this.dgvContatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContatos_CellContentClick);
+            this.dgvContatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvContatos_KeyPress);
+            this.dgvContatos.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvContatos_PreviewKeyDown);
             // 
             // groupBox1
             // 
@@ -333,39 +383,6 @@
             this.label12.TabIndex = 32;
             this.label12.Text = "Cidade";
             // 
-            // txtDocumento2
-            // 
-            this.txtDocumento2.Location = new System.Drawing.Point(19, 94);
-            this.txtDocumento2.Name = "txtDocumento2";
-            this.txtDocumento2.Size = new System.Drawing.Size(187, 23);
-            this.txtDocumento2.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 16);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "RG ou IE";
-            // 
-            // txtDocumento1
-            // 
-            this.txtDocumento1.Location = new System.Drawing.Point(19, 43);
-            this.txtDocumento1.Name = "txtDocumento1";
-            this.txtDocumento1.Size = new System.Drawing.Size(183, 23);
-            this.txtDocumento1.TabIndex = 22;
-            this.txtDocumento1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDocumento1_MaskInputRejected);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 16);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "CPF ou CNPJ";
-            // 
             // txtNomeFantasia
             // 
             this.txtNomeFantasia.Location = new System.Drawing.Point(150, 127);
@@ -501,19 +518,6 @@
             this.tabPage2.Text = "Comentários";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtDocumento2);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtDocumento1);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(9, 156);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(230, 149);
-            this.groupBox3.TabIndex = 42;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Documentos";
-            // 
             // txtObs
             // 
             this.txtObs.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -533,20 +537,21 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Frm_PessoaCadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoa Cadastro";
             this.Load += new System.EventHandler(this.Frm_PessoaCadastro_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContatos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

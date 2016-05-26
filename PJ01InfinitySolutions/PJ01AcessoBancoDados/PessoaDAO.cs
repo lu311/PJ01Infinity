@@ -80,9 +80,10 @@ namespace PJ01Model
                 banco.Commit();
             }
             catch (Exception e)
-            {
+            {               
                 banco.Rollback();
                 Console.WriteLine("PessoaDao.InserirPessoa erro: " + e.Message);
+                throw;
             }
             finally
             {
@@ -108,8 +109,8 @@ namespace PJ01Model
 
             foreach (DataRow row in delRows)
             {
-                listSql.Add("delete from PESSOACONTATO where CONTATOID = " + row[0].ToString());
-                Console.WriteLine("InserirPessoa.Contato linha deletada: " + row[0].ToString());
+                listSql.Add("delete from PESSOACONTATO where CONTATOID = " + row["contatoid", DataRowVersion.Original].ToString());
+                Console.WriteLine("InserirPessoa.Contato linha deletada: " + row["contatoid", DataRowVersion.Original].ToString());
             }
 
             foreach (DataRow row in insertRows)
@@ -157,6 +158,29 @@ namespace PJ01Model
             foreach (string sql in listSql)
             {
                 banco.Gravar(sql);
+            }
+        }
+
+        /// <summary>
+        /// Pesquisa e delete uma pessoa no banco de dados utilizando o ID como base da busca.
+        /// </summary>
+        /// <param name="pessoaId"></param>
+        public void ExcluirPessoa(int pessoaId)
+        {
+            try
+            {
+                banco.abrirConexaoTransacao();
+                banco.Gravar("delete from pessoa where PESSOAID = " + pessoaId);
+                banco.Commit();
+            }
+            catch (Exception e)
+            {
+                banco.Rollback();
+                Console.WriteLine("PessoaDao.ExcluirPessoa erro: " + e.Message);
+            }
+            finally
+            {
+                banco.fecharConexao();
             }
         }
 

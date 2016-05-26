@@ -141,5 +141,15 @@ namespace PJ01Controller
             combo.DisplayMember = "categoria";
 
         }
+
+        /// <summary>
+        /// Metodo que Deleta uma pessoa do banco de dados, OBS: quando o software tive mais adiantado deve-se fazer verificação se 
+        /// estes dados ponde se realmente deletados, excluir sera permitido se o cadastro nao tive nenhum outro item viculado.
+        /// </summary>
+        /// <param name="pessoaId"></param>
+        public void ExcluirPessoa(int pessoaId)
+        {
+           dao.ExcluirPessoa(pessoaId);            
+        }
     }
 }
