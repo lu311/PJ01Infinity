@@ -19,6 +19,16 @@ namespace PJ01Controller
         }
 
         /// <summary>
+        /// Metoque pesquisa varias pessoas
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
+        public DataTable PesquisaVariasPessoas(string texto)
+        {
+            return dao.PesquisaPessoas(texto);
+        }
+
+        /// <summary>
         /// Metodo que verifica e faz algumas validações nos dados da Classe de Pessoa, 
         /// se retorna Verdadeiro (true) os dados estão corretos caso retorne falso deve verificar a propriedade msgValidacao
         /// </summary>
@@ -74,8 +84,7 @@ namespace PJ01Controller
         /// <param name="pessoaId"></param>
         /// <returns></returns>
         public PessoaModel PesquisaUmaPessoa(int pessoaId)
-        {
-            // pesquisa a pessoa
+        {          
             DataTable t;
             t = dao.PesquisaPessoa(pessoaId);
 

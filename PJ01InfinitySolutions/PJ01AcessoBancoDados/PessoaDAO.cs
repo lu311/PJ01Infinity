@@ -80,7 +80,7 @@ namespace PJ01Model
                 banco.Commit();
             }
             catch (Exception e)
-            {               
+            {
                 banco.Rollback();
                 Console.WriteLine("PessoaDao.InserirPessoa erro: " + e.Message);
                 throw;
@@ -199,6 +199,31 @@ namespace PJ01Model
             catch (Exception e)
             {
                 Console.WriteLine("PessoaDao.PesquisaPessoa erro: " + e.Message);
+            }
+            finally
+            {
+                banco.fecharConexao();
+            }
+
+            return tabelaSelect;
+        }
+
+        /// <summary>
+        /// Pesquisa em banco de dados uma ou mais pessoa utilizando um texto como base da busca 
+        /// por hora apenas o nome esta sendo usado como meio de pesquisa.
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
+        public DataTable PesquisaPessoas(string texto)
+        {
+            try
+            {
+                banco.abrirConexao();
+                tabelaSelect = banco.Select("SELECT * from pessoa where nome like '%" + texto + "%'");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("PessoaDao.PesquisaPessoas erro: " + e.Message);
             }
             finally
             {

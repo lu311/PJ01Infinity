@@ -24,8 +24,8 @@ namespace PJ01InfinitySolutions
 
         private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_PessoaCadastro pessoaCadastro = new Frm_PessoaCadastro();
-            pessoaCadastro.ShowDialog();
+            Frm_PessoaConsulta telaPessoaConsulta = new Frm_PessoaConsulta();
+            telaPessoaConsulta.ShowDialog();
         }
     }
 }
