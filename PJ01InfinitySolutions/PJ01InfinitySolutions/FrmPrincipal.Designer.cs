@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonPessoa = new System.Windows.Forms.ToolStripButton();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonPessoa = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,17 @@
             this.toolStrip1.Size = new System.Drawing.Size(543, 55);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonPessoa
+            // 
+            this.toolStripButtonPessoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPessoa.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_find;
+            this.toolStripButtonPessoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPessoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPessoa.Name = "toolStripButtonPessoa";
+            this.toolStripButtonPessoa.Size = new System.Drawing.Size(52, 52);
+            this.toolStripButtonPessoa.Text = "toolStripButton1";
+            this.toolStripButtonPessoa.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -71,17 +82,6 @@
             this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.pessoaToolStripMenuItem.Text = "Pessoa";
             this.pessoaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
-            // 
-            // toolStripButtonPessoa
-            // 
-            this.toolStripButtonPessoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPessoa.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_add;
-            this.toolStripButtonPessoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonPessoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPessoa.Name = "toolStripButtonPessoa";
-            this.toolStripButtonPessoa.Size = new System.Drawing.Size(52, 52);
-            this.toolStripButtonPessoa.Text = "toolStripButton1";
-            this.toolStripButtonPessoa.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 

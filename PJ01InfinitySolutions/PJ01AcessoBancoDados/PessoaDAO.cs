@@ -219,7 +219,10 @@ namespace PJ01Model
             try
             {
                 banco.abrirConexao();
-                tabelaSelect = banco.Select("SELECT * from pessoa where nome like '%" + texto + "%'");
+                tabelaSelect = banco.Select("SELECT * from pessoa_consulta_view where upper(nome) like upper('%" + texto + "%') "
+                    + " or upper(nomefantasia) like upper('%" + texto + "%') "
+                    + " or upper(cidade) like upper('%" + texto + "%')  order by nome"
+                    );
             }
             catch (Exception e)
             {

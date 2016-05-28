@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvPessoaConsulta = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvPessoaConsulta = new System.Windows.Forms.DataGridView();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoaConsulta)).BeginInit();
@@ -44,8 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.btnExcluir);
-            this.panel1.Controls.Add(this.btnGravar);
+            this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.btnNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -54,31 +52,59 @@
             this.panel1.Size = new System.Drawing.Size(790, 67);
             this.panel1.TabIndex = 1;
             // 
-            // btnExcluir
+            // panel2
             // 
-            this.btnExcluir.Image = global::PJ01InfinitySolutions.Properties.Resources.index_delete;
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(234, 4);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(108, 57);
-            this.btnExcluir.TabIndex = 2;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.panel2.Controls.Add(this.txtPesquisa);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 67);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(790, 59);
+            this.panel2.TabIndex = 2;
             // 
-            // btnGravar
+            // txtPesquisa
             // 
-            this.btnGravar.Image = global::PJ01InfinitySolutions.Properties.Resources.disk_green;
-            this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGravar.Location = new System.Drawing.Point(119, 4);
-            this.btnGravar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(108, 57);
-            this.btnGravar.TabIndex = 1;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.txtPesquisa.Location = new System.Drawing.Point(18, 27);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(324, 20);
+            this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Digite o nome/cidade/documento a ser pesquisado";
+            // 
+            // dgvPessoaConsulta
+            // 
+            this.dgvPessoaConsulta.AllowUserToAddRows = false;
+            this.dgvPessoaConsulta.AllowUserToDeleteRows = false;
+            this.dgvPessoaConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoaConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPessoaConsulta.Location = new System.Drawing.Point(0, 126);
+            this.dgvPessoaConsulta.Name = "dgvPessoaConsulta";
+            this.dgvPessoaConsulta.ReadOnly = true;
+            this.dgvPessoaConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
+            this.dgvPessoaConsulta.TabIndex = 3;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_refresh;
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(119, 4);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(108, 57);
+            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
@@ -93,45 +119,6 @@
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.txtPesquisa);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 67);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(790, 59);
-            this.panel2.TabIndex = 2;
-            // 
-            // dgvPessoaConsulta
-            // 
-            this.dgvPessoaConsulta.AllowUserToAddRows = false;
-            this.dgvPessoaConsulta.AllowUserToDeleteRows = false;
-            this.dgvPessoaConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPessoaConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPessoaConsulta.Location = new System.Drawing.Point(0, 126);
-            this.dgvPessoaConsulta.Name = "dgvPessoaConsulta";
-            this.dgvPessoaConsulta.ReadOnly = true;
-            this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
-            this.dgvPessoaConsulta.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Digite o nome a ser pesquisado";
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Location = new System.Drawing.Point(18, 27);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(324, 20);
-            this.txtPesquisa.TabIndex = 1;
-            this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // Frm_PessoaConsulta
             // 
@@ -154,8 +141,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPesquisa;

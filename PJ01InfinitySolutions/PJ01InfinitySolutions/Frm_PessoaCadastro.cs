@@ -10,7 +10,7 @@ namespace PJ01InfinitySolutions
 
         PessoaControle pc = new PessoaControle();
         PessoaModel pessoa;
-        int pessoaIdPesquisa = 32;
+        public int pessoaIdPesquisa = 0;
 
         public Frm_PessoaCadastro()
         {

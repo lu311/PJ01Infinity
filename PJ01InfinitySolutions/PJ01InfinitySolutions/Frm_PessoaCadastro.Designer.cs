@@ -96,7 +96,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Image = global::PJ01InfinitySolutions.Properties.Resources.index_delete;
+            this.btnExcluir.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_delete;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluir.Location = new System.Drawing.Point(234, 4);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
