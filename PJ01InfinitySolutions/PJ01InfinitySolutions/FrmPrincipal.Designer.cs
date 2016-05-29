@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonPessoa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPessoaConsulta = new System.Windows.Forms.ToolStripButton();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaPessoasCadastradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -40,23 +43,23 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonPessoa});
+            this.toolStripButtonPessoaConsulta});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(543, 55);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButtonPessoa
+            // toolStripButtonPessoaConsulta
             // 
-            this.toolStripButtonPessoa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPessoa.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_find;
-            this.toolStripButtonPessoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonPessoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPessoa.Name = "toolStripButtonPessoa";
-            this.toolStripButtonPessoa.Size = new System.Drawing.Size(52, 52);
-            this.toolStripButtonPessoa.Text = "toolStripButton1";
-            this.toolStripButtonPessoa.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
+            this.toolStripButtonPessoaConsulta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPessoaConsulta.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_find;
+            this.toolStripButtonPessoaConsulta.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPessoaConsulta.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPessoaConsulta.Name = "toolStripButtonPessoaConsulta";
+            this.toolStripButtonPessoaConsulta.Size = new System.Drawing.Size(52, 52);
+            this.toolStripButtonPessoaConsulta.Text = "toolStripButton1";
+            this.toolStripButtonPessoaConsulta.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -67,6 +70,7 @@
             this.menuStrip.Size = new System.Drawing.Size(543, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
+            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -78,10 +82,33 @@
             // 
             // pessoaToolStripMenuItem
             // 
+            this.pessoaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultaPessoasCadastradaToolStripMenuItem,
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem,
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem});
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
-            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pessoaToolStripMenuItem.Text = "Pessoa";
-            this.pessoaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
+            // 
+            // cadastroDeUmaNovaPessoaToolStripMenuItem
+            // 
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Name = "cadastroDeUmaNovaPessoaToolStripMenuItem";
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Text = "Cadastro de uma nova pessoa";
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUmaNovaPessoaToolStripMenuItem_Click);
+            // 
+            // consultaPessoasCadastradaToolStripMenuItem
+            // 
+            this.consultaPessoasCadastradaToolStripMenuItem.Name = "consultaPessoasCadastradaToolStripMenuItem";
+            this.consultaPessoasCadastradaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.consultaPessoasCadastradaToolStripMenuItem.Text = "Consulta pessoas cadastrada";
+            this.consultaPessoasCadastradaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
+            // 
+            // cadastroDeCategoriasDePessoaToolStripMenuItem
+            // 
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem.Name = "cadastroDeCategoriasDePessoaToolStripMenuItem";
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem.Text = "Cadastro de categorias de pessoa";
             // 
             // FrmPrincipal
             // 
@@ -108,10 +135,13 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonPessoa;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPessoaConsulta;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pessoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaPessoasCadastradaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeUmaNovaPessoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeCategoriasDePessoaToolStripMenuItem;
     }
 }
 

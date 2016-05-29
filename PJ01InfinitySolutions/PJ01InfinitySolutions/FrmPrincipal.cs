@@ -27,5 +27,16 @@ namespace PJ01InfinitySolutions
             Frm_PessoaConsulta telaPessoaConsulta = new Frm_PessoaConsulta();
             telaPessoaConsulta.ShowDialog();
         }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void cadastroDeUmaNovaPessoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_PessoaCadastro telaPessoaCadastro = new Frm_PessoaCadastro();
+            telaPessoaCadastro.ShowDialog();
+        }
     }
 }

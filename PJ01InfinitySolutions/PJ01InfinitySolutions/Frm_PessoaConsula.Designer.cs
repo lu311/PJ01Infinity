@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPessoaConsulta = new System.Windows.Forms.DataGridView();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoaConsulta)).BeginInit();
@@ -51,46 +51,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(790, 67);
             this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.txtPesquisa);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 67);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(790, 59);
-            this.panel2.TabIndex = 2;
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Location = new System.Drawing.Point(18, 27);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(324, 20);
-            this.txtPesquisa.TabIndex = 1;
-            this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Digite o nome/cidade/documento a ser pesquisado";
-            // 
-            // dgvPessoaConsulta
-            // 
-            this.dgvPessoaConsulta.AllowUserToAddRows = false;
-            this.dgvPessoaConsulta.AllowUserToDeleteRows = false;
-            this.dgvPessoaConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPessoaConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPessoaConsulta.Location = new System.Drawing.Point(0, 126);
-            this.dgvPessoaConsulta.Name = "dgvPessoaConsulta";
-            this.dgvPessoaConsulta.ReadOnly = true;
-            this.dgvPessoaConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
-            this.dgvPessoaConsulta.TabIndex = 3;
             // 
             // btnAlterar
             // 
@@ -119,6 +79,46 @@
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtPesquisa);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 67);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(790, 59);
+            this.panel2.TabIndex = 2;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(18, 27);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(324, 20);
+            this.txtPesquisa.TabIndex = 1;
+            this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Digite  nome/cidade/documento";
+            // 
+            // dgvPessoaConsulta
+            // 
+            this.dgvPessoaConsulta.AllowUserToAddRows = false;
+            this.dgvPessoaConsulta.AllowUserToDeleteRows = false;
+            this.dgvPessoaConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoaConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPessoaConsulta.Location = new System.Drawing.Point(0, 126);
+            this.dgvPessoaConsulta.Name = "dgvPessoaConsulta";
+            this.dgvPessoaConsulta.ReadOnly = true;
+            this.dgvPessoaConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
+            this.dgvPessoaConsulta.TabIndex = 3;
             // 
             // Frm_PessoaConsulta
             // 
