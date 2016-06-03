@@ -33,6 +33,8 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPessoaConsulta = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -43,6 +45,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.btnSelecionar);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.btnNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -54,9 +57,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.txtPesquisa);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 67);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(790, 59);
@@ -64,18 +69,20 @@
             // 
             // txtPesquisa
             // 
-            this.txtPesquisa.Location = new System.Drawing.Point(18, 27);
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txtPesquisa.Location = new System.Drawing.Point(18, 24);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(324, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(324, 23);
             this.txtPesquisa.TabIndex = 1;
             this.txtPesquisa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 11);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label1.Location = new System.Drawing.Point(18, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 13);
+            this.label1.Size = new System.Drawing.Size(328, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Digite o nome/cidade/documento a ser pesquisado";
             // 
@@ -88,9 +95,34 @@
             this.dgvPessoaConsulta.Location = new System.Drawing.Point(0, 126);
             this.dgvPessoaConsulta.Name = "dgvPessoaConsulta";
             this.dgvPessoaConsulta.ReadOnly = true;
+            this.dgvPessoaConsulta.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dgvPessoaConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
             this.dgvPessoaConsulta.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(348, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 26);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_preferences;
+            this.btnSelecionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSelecionar.Location = new System.Drawing.Point(234, 3);
+            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(108, 57);
+            this.btnSelecionar.TabIndex = 2;
+            this.btnSelecionar.Text = "Selecionar\r\ne fechar";
+            this.btnSelecionar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
             // 
             // btnAlterar
             // 
@@ -147,5 +179,7 @@
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvPessoaConsulta;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSelecionar;
     }
 }

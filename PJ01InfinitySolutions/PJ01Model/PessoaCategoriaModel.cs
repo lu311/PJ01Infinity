@@ -8,5 +8,7 @@ namespace PJ01Model
 {
     class PessoaCategoriaDados
     {
+        public int categoriaID { get; set; }
+        public String categoria { get; set; }
     }
 }
