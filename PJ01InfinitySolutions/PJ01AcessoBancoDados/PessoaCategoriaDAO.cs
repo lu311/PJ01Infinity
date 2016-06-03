@@ -11,9 +11,7 @@ namespace PJ01Model
     class PessoaCategoriaDAO
     {
         Banco banco = new Banco();
-        DataTable tabelaSelect;
-
-    
+        DataTable tabelaSelect; 
         
         public void InserirCategoria(DataTable categoria)
         {
