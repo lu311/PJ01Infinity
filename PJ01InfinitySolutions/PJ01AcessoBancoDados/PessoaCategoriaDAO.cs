@@ -13,6 +13,10 @@ namespace PJ01Model
         Banco banco = new Banco();
         DataTable tabelaSelect; 
         
+        /// <summary>
+        /// Metodo que recebe um datatable de categorias e o converte em sql para ser enviado ao banco de dados.
+        /// </summary>
+        /// <param name="categoria"></param>
         public void InserirCategoria(DataTable categoria)
         {
             List<string> listSql = new List<string>();
@@ -34,41 +38,17 @@ namespace PJ01Model
 
             foreach (DataRow row in insertRows)
             {
-                if (row["DATAANIVERSARIO"].ToString().Length > 0)
-                    data = "'" + row["DATAANIVERSARIO"].ToString().Replace("/", ".").Replace("/", ".").Substring(0, 10) + "'";
-                else
-                    data = "null";
-
-                string sql = "INSERT INTO PESSOACONTATO (PESSOAID,NOME,DEPARTAMENTO,DATAANIVERSARIO,DDD,FONE,OPERADORA,EMAIL) ";
-                sql += "VALUES (" + pessoaId + ",'" +
-                    row["NOME"].ToString() + "','" +
-                    row["DEPARTAMENTO"].ToString() + "'," +
-                    data + ",'" +
-                    row["DDD"].ToString() + "','" +
-                    row["FONE"].ToString() + "','" +
-                    row["OPERADORA"].ToString() + "','" +
-                    row["EMAIL"].ToString() + "')";
-
+                string sql = "INSERT INTO PESSOACATEGORIA (categoria) VALUES ('" + row["categoria"].ToString() + "')";
+                
                 listSql.Add(sql);
                 Console.WriteLine("InserirCategoria linha insert: \n" + sql);
             }
 
             foreach (DataRow row in updateRows)
             {
-                if (row["DATAANIVERSARIO"].ToString().Length > 0)
-                    data = "'" + row["DATAANIVERSARIO"].ToString().Replace("/", ".").Replace("/", ".").Substring(0, 10) + "'";
-                else
-                    data = "null";
-
-                string sql = "UPDATE PESSOACONTATO set "
-                    + "NOME='" + row["NOME"].ToString() + "',"
-                    + "DEPARTAMENTO='" + row["DEPARTAMENTO"].ToString() + "',"
-                    + "DATAANIVERSARIO=" + data + ","
-                    + "DDD='" + row["DDD"].ToString() + "',"
-                    + "FONE='" + row["FONE"].ToString() + "',"
-                    + "OPERADORA='" + row["OPERADORA"].ToString() + "',"
-                    + "EMAIL='" + row["EMAIL"].ToString() + "' "
-                    + "where CONTATOID = " + row["CONTATOID"].ToString();
+                string sql = "UPDATE PESSOACATEGORIA set "
+                    + "NOME='" + row["categoria"].ToString() + "' "
+                    + "where categogiraid = " + row["categoriaID"].ToString();
 
                 listSql.Add(sql);
                 Console.WriteLine("InserirCategoria linha update: \n" + sql);
