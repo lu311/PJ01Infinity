@@ -109,7 +109,7 @@ namespace PJ01InfinitySolutions
             pessoaSelecionada = pc.PesquisaUmaPessoa(Convert.ToInt32(row.Cells["pessoaid"].Value));
             pessoaSelecionadaID = pessoaSelecionada.pessoaId;
             // fecha a tela tambem pode ser usado this.Close();
-            Close(); 
+            Close();
         }
     }
 }
