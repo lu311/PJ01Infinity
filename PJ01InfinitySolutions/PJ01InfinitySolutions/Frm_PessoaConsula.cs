@@ -26,7 +26,7 @@ namespace PJ01InfinitySolutions
         {          
             InitializeComponent();
 
-            //btnSelecionar.Visible = false;
+            btnSelecionar.Visible = false;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace PJ01InfinitySolutions
         {
             InitializeComponent();
 
-          //  btnSelecionar.Visible = true;
+            btnSelecionar.Visible = true;
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
