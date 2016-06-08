@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    class PessoaCategoriaDados
+    class PessoaCategoriaModel
     {
         public int categoriaID { get; set; }
         public String categoria { get; set; }
