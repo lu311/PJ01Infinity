@@ -35,6 +35,7 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPessoaConsulta = new System.Windows.Forms.DataGridView();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoaConsulta)).BeginInit();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.btnSelecionar);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.btnNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -120,6 +122,20 @@
             this.dgvPessoaConsulta.Size = new System.Drawing.Size(790, 471);
             this.dgvPessoaConsulta.TabIndex = 3;
             // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.Image = global::PJ01InfinitySolutions.Properties.Resources.user1_preferences;
+            this.btnSelecionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSelecionar.Location = new System.Drawing.Point(235, 6);
+            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(108, 57);
+            this.btnSelecionar.TabIndex = 2;
+            this.btnSelecionar.Text = "Selecionar\r\ne fechar";
+            this.btnSelecionar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSelecionar.UseVisualStyleBackColor = true;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnSelecionar_Click);
+            // 
             // Frm_PessoaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +163,6 @@
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvPessoaConsulta;
+        private System.Windows.Forms.Button btnSelecionar;
     }
 }
