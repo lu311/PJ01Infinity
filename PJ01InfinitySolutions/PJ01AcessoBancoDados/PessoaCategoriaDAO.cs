@@ -17,7 +17,7 @@ namespace PJ01Model
         /// Metodo que recebe um datatable de categorias e o converte em sql para ser enviado ao banco de dados.
         /// </summary>
         /// <param name="categoria"></param>
-        public void InserirCategoria(DataTable categoria)
+        public void GravarCategoria(DataTable categoria)
         {
             List<string> listSql = new List<string>();
 
@@ -82,31 +82,7 @@ namespace PJ01Model
                 banco.fecharConexao();
             }
         }
-
-        /// <summary>
-        /// Pesquisa em banco de dados uma pessoaCategoria utilizando o ID como base da busca.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public DataTable PesquisaCategoria(int id)
-        {
-            try
-            {
-                banco.abrirConexao();
-                tabelaSelect = banco.Select("SELECT * from pessoacategoria where categoriaID = " + id);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("PesquisaCategoria erro: " + e.Message);
-            }
-            finally
-            {
-                banco.fecharConexao();
-            }
-
-            return tabelaSelect;
-        }
-
+     
         /// <summary>
         /// Pesquisa em banco de dados e retorna todas as categorias 
         /// </summary>
