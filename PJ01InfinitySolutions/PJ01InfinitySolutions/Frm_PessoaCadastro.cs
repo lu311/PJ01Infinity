@@ -96,19 +96,11 @@ namespace PJ01InfinitySolutions
             PesquisaPessoa();
         }
 
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void Frm_PessoaCadastro_Load(object sender, EventArgs e)
         {
             PesquisaPessoa();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
         private void PesquisaPessoa()
         {
             pessoa = new PessoaModel();
@@ -154,30 +146,19 @@ namespace PJ01InfinitySolutions
             }
         }
 
-        private void txtDocumento1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void dgvContatos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
-        private void dgvContatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvContatos_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                MessageBox.Show("delete");
-                foreach (DataGridViewRow item in dgvContatos.SelectedRows)
-                {
-                    dgvContatos.Rows.RemoveAt(item.Index);
-                }
+                DeletaContato();
+            }
+        }
+
+        private void DeletaContato()
+        {
+            foreach (DataGridViewRow item in dgvContatos.SelectedRows)
+            {
+                dgvContatos.Rows.RemoveAt(item.Index);
             }
         }
 
@@ -185,7 +166,7 @@ namespace PJ01InfinitySolutions
         {
             if (txtCodigo.Text != "0")
             {
-                DialogResult opcao = MessageBox.Show("Deseja excluir este cadastro? \n Após confirmação a tela será fechada.", 
+                DialogResult opcao = MessageBox.Show("Deseja excluir este cadastro? \n Após confirmação a tela será fechada.",
                     "Excluir cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (opcao == DialogResult.Yes)
@@ -193,7 +174,7 @@ namespace PJ01InfinitySolutions
                     pc.ExcluirPessoa(Convert.ToInt32(txtCodigo.Text));
                     this.Close();
                 }
-            }     
+            }
         }
     }
 }

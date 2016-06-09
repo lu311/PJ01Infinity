@@ -208,7 +208,6 @@
             this.txtDocumento1.Name = "txtDocumento1";
             this.txtDocumento1.Size = new System.Drawing.Size(183, 23);
             this.txtDocumento1.TabIndex = 22;
-            this.txtDocumento1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtDocumento1_MaskInputRejected);
             // 
             // label7
             // 
@@ -237,8 +236,6 @@
             this.dgvContatos.Name = "dgvContatos";
             this.dgvContatos.Size = new System.Drawing.Size(836, 210);
             this.dgvContatos.TabIndex = 39;
-            this.dgvContatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContatos_CellContentClick);
-            this.dgvContatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvContatos_KeyPress);
             this.dgvContatos.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dgvContatos_PreviewKeyDown);
             // 
             // groupBox1
@@ -262,8 +259,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(596, 150);
             this.groupBox1.TabIndex = 40;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.TabStop = false;            
             // 
             // txtEndereco
             // 
@@ -474,8 +470,7 @@
             this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(140, 24);
-            this.cmbCategoria.TabIndex = 11;
-            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            this.cmbCategoria.TabIndex = 11;            
             // 
             // label2
             // 
