@@ -33,8 +33,8 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroDeUmaNovaPessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaPessoasCadastradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeCategoriasDePessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -90,13 +90,6 @@
             this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pessoaToolStripMenuItem.Text = "Pessoa";
             // 
-            // cadastroDeUmaNovaPessoaToolStripMenuItem
-            // 
-            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Name = "cadastroDeUmaNovaPessoaToolStripMenuItem";
-            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Text = "Cadastro de uma nova pessoa";
-            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUmaNovaPessoaToolStripMenuItem_Click);
-            // 
             // consultaPessoasCadastradaToolStripMenuItem
             // 
             this.consultaPessoasCadastradaToolStripMenuItem.Name = "consultaPessoasCadastradaToolStripMenuItem";
@@ -104,11 +97,19 @@
             this.consultaPessoasCadastradaToolStripMenuItem.Text = "Consulta pessoas cadastrada";
             this.consultaPessoasCadastradaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
+            // cadastroDeUmaNovaPessoaToolStripMenuItem
+            // 
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Name = "cadastroDeUmaNovaPessoaToolStripMenuItem";
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Text = "Cadastro de uma nova pessoa";
+            this.cadastroDeUmaNovaPessoaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUmaNovaPessoaToolStripMenuItem_Click);
+            // 
             // cadastroDeCategoriasDePessoaToolStripMenuItem
             // 
             this.cadastroDeCategoriasDePessoaToolStripMenuItem.Name = "cadastroDeCategoriasDePessoaToolStripMenuItem";
             this.cadastroDeCategoriasDePessoaToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.cadastroDeCategoriasDePessoaToolStripMenuItem.Text = "Cadastro de categorias de pessoa";
+            this.cadastroDeCategoriasDePessoaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeCategoriasDePessoaToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 

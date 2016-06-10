@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PJ01Model
 {
-    class PessoaCategoriaDAO
+    public class PessoaCategoriaDAO
     {
         Banco banco = new Banco();
         DataTable tabelaSelect; 
@@ -92,7 +92,7 @@ namespace PJ01Model
             try
             {
                 banco.abrirConexao();
-                tabelaSelect = banco.Select("SELECT * from pessoacategorias order by categoria");                   
+                tabelaSelect = banco.Select("SELECT * from pessoacategoria order by categoria");                   
             }
             catch (Exception e)
             {

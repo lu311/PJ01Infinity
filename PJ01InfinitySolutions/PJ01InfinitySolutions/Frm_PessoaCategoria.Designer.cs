@@ -139,6 +139,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Frm_PessoaCategoria";
             this.Text = "Pessoa Categoria";
+            this.Load += new System.EventHandler(this.Frm_PessoaCategoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PJ01Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,5 +10,27 @@ namespace PJ01Controller
 {
     public class PessoaCategoriaControle
     {
+        PessoaCategoriaDAO dao;
+
+       public PessoaCategoriaControle()
+        {
+            dao = new PessoaCategoriaDAO();
+        }
+
+        public DataTable PesquisaCategorias()
+        {
+            return dao.PesquisaCategorias();
+        }
+
+        public void Gravar(PessoaCategoriaModel categoria)
+        {
+            dao.GravarCategoria(categoria.pessoaCategoria);
+        }
+
+        public void Excluir(int categoriaId)
+        {
+            dao.ExcluirCategoria(categoriaId);
+        }
+
     }
 }
