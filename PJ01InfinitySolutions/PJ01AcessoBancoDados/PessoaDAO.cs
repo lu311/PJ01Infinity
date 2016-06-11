@@ -39,13 +39,16 @@ namespace PJ01Model
 
             try
             {
-                banco.abrirConexao();
+                banco.abrirConexaoTransacao();
                 banco.Gravar(sql);
                 InserirContato(pessoa.pessoaId, pessoa.pessoaContatos);
+                banco.Commit();
             }
             catch (Exception e)
             {
+                banco.Rollback();
                 Console.WriteLine("PessoaDao.UpdatePessoa erro: " + e.Message);
+                throw;
             }
             finally
             {

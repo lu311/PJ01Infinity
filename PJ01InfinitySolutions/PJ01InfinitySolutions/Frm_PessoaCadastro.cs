@@ -148,10 +148,7 @@ namespace PJ01InfinitySolutions
 
         private void dgvContatos_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
-            {
-                DeletaContato();
-            }
+            
         }
 
         private void DeletaContato()

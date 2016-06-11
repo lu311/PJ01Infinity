@@ -32,8 +32,8 @@ namespace PJ01Model
 
             foreach (DataRow row in delRows)
             {
-                listSql.Add("delete from PESSOACATEGORIA where categoriaID = " + row["contatoid", DataRowVersion.Original].ToString());
-                Console.WriteLine("InserirCategoria linha deletada: " + row["contatoid", DataRowVersion.Original].ToString());
+                listSql.Add("delete from PESSOACATEGORIA where categoriaID = " + row["categoriaid", DataRowVersion.Original].ToString());
+                Console.WriteLine("InserirCategoria linha deletada: " + row["categoriaid", DataRowVersion.Original].ToString());
             }
 
             foreach (DataRow row in insertRows)
@@ -47,17 +47,35 @@ namespace PJ01Model
             foreach (DataRow row in updateRows)
             {
                 string sql = "UPDATE PESSOACATEGORIA set "
-                    + "NOME='" + row["categoria"].ToString() + "' "
-                    + "where categogiraid = " + row["categoriaID"].ToString();
+                    + "categoria='" + row["categoria"].ToString() + "' "
+                    + "where categoriaid = " + row["categoriaID"].ToString();
 
                 listSql.Add(sql);
                 Console.WriteLine("InserirCategoria linha update: \n" + sql);
             }
 
-            foreach (string sql in listSql)
+
+            try
             {
-                banco.Gravar(sql);
+                banco.abrirConexaoTransacao();
+
+                foreach (string sql in listSql)
+                {
+                    banco.Gravar(sql);
+                }
+
+                banco.Commit();     
             }
+            catch (Exception e)
+            {
+                banco.Rollback();
+                Console.WriteLine("CategoriaDao.GravarCategoria erro: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                banco.fecharConexao();
+            }       
         }
 
         /// <summary>

@@ -15,7 +15,6 @@ namespace PJ01InfinitySolutions
     public partial class Frm_PessoaCategoria : Form
     {
         PessoaCategoriaControle pc = new PessoaCategoriaControle();
-        PessoaCategoriaModel categoria = new PessoaCategoriaModel();
 
         public Frm_PessoaCategoria()
         {
@@ -29,8 +28,19 @@ namespace PJ01InfinitySolutions
 
         private void Frm_PessoaCategoria_Load(object sender, EventArgs e)
         {
-            categoria.pessoaCategoria = pc.PesquisaCategorias();
-            dgvCategorias.DataSource = categoria.pessoaCategoria;
+            pc.PesquisaCategorias();
+            pc.FormatDataGridCategoria(dgvCategorias);
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            pc.Gravar(pc.categoria);
+            MessageBox.Show("Dados gravaso com sucesso.");
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
