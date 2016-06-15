@@ -47,6 +47,7 @@
     <Compile Include="Banco.cs" />
     <Compile Include="PessoaCategoriaDAO.cs" />
     <Compile Include="PessoaDAO.cs" />
+    <Compile Include="PessoaEquipamentoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

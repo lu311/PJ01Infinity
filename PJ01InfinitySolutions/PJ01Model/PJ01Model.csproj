@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PessoaCategoriaModel.cs" />
+    <Compile Include="PessoaEquipamentoModel.cs" />
     <Compile Include="PessoaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

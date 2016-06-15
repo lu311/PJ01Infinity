@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PJ01Controller
+namespace PJ01DAO_SQL
 {
     public class Banco
     {
