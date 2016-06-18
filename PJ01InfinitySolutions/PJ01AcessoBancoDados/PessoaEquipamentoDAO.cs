@@ -16,7 +16,6 @@ namespace PJ01AcessoBancoDados
         DataTable tabelaSelect;
 
 
-
         public void AlterarEquipamento(PessoaEquipamentoModel Equipamento)
         {
             // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B08 begin
@@ -24,43 +23,77 @@ namespace PJ01AcessoBancoDados
 
         }
 
-        
+
         private void InserirPessoaEquipamento(PessoaEquipamentoModel Equipamento)
         {
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B0E begin
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B0E end
+            string sql = "INSERT INTO PESSOAEQUIPAMENTO ("
+                + "EQUIPAMENTOID, PESSOAID, EQUIPAMENTOTIPOID, DATACADASTRO, FABRICANTE,"
+                + "MODELO, NUMEROSERIE, ETIQUETAID, PRATIMONIOID, NOMEPCREDE, REDEIPFIXO,"
+                + "PROCESSADOR, PLACAMAE, MEMORIA, PLACAVGA, PLACAREDE, HD, DRIVERDVD, MONITOR,"
+                + "FONTEALIMENTACAO, IMPRESSORAS, IMPRESSORASIP, SCANNER, FORNECEDOR, COMPRADATA, "
+                + "COMPRAGARANTIA, NOTAFISCAL, EQUIPAMENTOESTADO, EQUIPAMENTOVALOR, OBSERVACOES) "
+                + "VALUES ("
+                + "@EQUIPAMENTOID, @PESSOAID, @EQUIPAMENTOTIPOID, '@DATACADASTRO', '@FABRICANTE',"
+                + "'@MODELO', '@NUMEROSERIE', '@ETIQUETAID', '@PRATIMONIOID', '@NOMEPCREDE', '@REDEIPFIXO',"
+                + "'@PROCESSADOR', '@PLACAMAE', '@MEMORIA, '@PLACAVGA', '@PLACAREDE', '@HD', '@DRIVERDVD', @MONITOR,"
+                + "'@FONTEALIMENTACAO', '@IMPRESSORAS', '@IMPRESSORASIP', '@SCANNER','@FORNECEDOR', '@COMPRADATA', "
+                + "'@COMPRAGARANTIA', '@NOTAFISCAL', 'EQUIPAMENTOESTADO', '@EQUIPAMENTOVALOR', '@OBSERVACOES')";
 
+            sql = sql.Replace("@EQUIPAMENTOID", Equipamento.equipamentoId.ToString());
+            sql = sql.Replace("@PESSOAID", Equipamento.pessoaID.ToString());
+            sql = sql.Replace("@EQUIPAMENTOTIPOID", Equipamento.equipamentoTipoId.ToString());
+            sql = sql.Replace("@DATACADASTRO", Equipamento.dataCadastro.ToString());
+            sql = sql.Replace("@FABRICANTE", Equipamento.fabricante);
+            sql = sql.Replace("@MODELO", Equipamento.modelo);
+            sql = sql.Replace("@NUMEROSERIE", Equipamento.numeroSerie);
+            sql = sql.Replace("@ETIQUETAID", Equipamento.etiquetaId);
+            sql = sql.Replace("@PRATIMONIOID", Equipamento.pratimonioId);
+            sql = sql.Replace("@NOMEPCREDE", Equipamento.nomePcRede);
+            sql = sql.Replace("@REDEIPFIXO", Equipamento.redeIpFixo);
+            sql = sql.Replace("@PROCESSADOR", Equipamento.processador);
+            sql = sql.Replace("@PLACAMAE", Equipamento.placaMae);
+            sql = sql.Replace("@MEMORIA", Equipamento.memoria);
+            sql = sql.Replace("@PLACAVGA", Equipamento.placaVga);
+            sql = sql.Replace("@PLACAREDE", Equipamento.placaRede);
+            sql = sql.Replace("@HD", Equipamento.hd);
+            sql = sql.Replace("@DRIVERDVD", Equipamento.driverDVD);
+            sql = sql.Replace("@MONITOR", Equipamento.monitor);
+            sql = sql.Replace("@FONTEALIMENTACAO", Equipamento.fonteAlimentacao);
+            sql = sql.Replace("@IMPRESSORAS", Equipamento.impressoras);
+            sql = sql.Replace("@IMPRESSORASIP", Equipamento.impressorasIP);
+            sql = sql.Replace("@SCANNER", Equipamento.fabricante);
+            sql = sql.Replace("@COMPRADATA", Equipamento.compraData.ToString());
+            sql = sql.Replace("@COMPRAGARANTIA", Equipamento.compraGarantia.ToString());
+            sql = sql.Replace("@NOTAFISCAL", Equipamento.notaFiscal);
+            sql = sql.Replace("@EQUIPAMENTOESTADO", Equipamento.equipamentoEstado);
+            sql = sql.Replace("@EQUIPAMENTOVALOR", Equipamento.equipamentoValor.ToString());
+            sql = sql.Replace("@OBSERVACOES", Equipamento.observacaoes);
         }
 
-      
+
         public void ExcluirPessoaEquipamento(int EquipamentoId)
         {
             // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B13 begin
             // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B13 end
 
         }
- 
+
         public DataTable PesquisaPessoaEquipamento(int EquipamentoId)
         {
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B15 begin
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B15 end
+            return null;
 
         }
 
-     
+
         public DataTable PesquisaPessoasEquipamentos(int pessoaId)
         {
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B17 begin
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B17 end
-
+            return null;
         }
 
-  
+
         public DataTable PesquisaEquipamentoTipos()
         {
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B19 begin
-            // section -64--88-56-1-189bbc2c:155330fba3d:-8000:0000000000000B19 end
-
+            return null;
         }
 
     }

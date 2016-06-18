@@ -14,27 +14,27 @@ namespace PJ01Model
         public string fabricante { get; set; }
         public string modelo { get; set; }
         public string numeroSerie { get; set; }
-        public string EtiqueId { get; set; }
+        public string etiquetaId { get; set; }
         public string pratimonioId { get; set; }
-        public string NomePcRede { get; set; }
-        public string RedeIpFixo { get; set; }
-        public string Processador { get; set; }
-        public string PlacaMae { get; set; }
-        public string Memoria { get; set; }
-        public string PlacaVga { get; set; }
-        public string PlacaRede { get; set; }
-        public string HD { get; set; }
-        public string DriverDVD { get; set; }
-        public string Monitor { get; set; }
+        public string nomePcRede { get; set; }
+        public string redeIpFixo { get; set; }
+        public string processador { get; set; }
+        public string placaMae { get; set; }
+        public string memoria { get; set; }
+        public string placaVga { get; set; }
+        public string placaRede { get; set; }
+        public string hd { get; set; }
+        public string driverDVD { get; set; }
+        public string monitor { get; set; }
         public string fonteAlimentacao { get; set; }
-        public int PessoaID { get; set; }
-        public string Impressoras { get; set; }
-        public string ImpressorasIP { get; set; }
+        public int pessoaID { get; set; }
+        public string impressoras { get; set; }
+        public string impressorasIP { get; set; }
         public string scanner { get; set; }
         public string fornecedor { get; set; }
         public DateTime compraData { get; set; }
         public DateTime compraGarantia { get; set; }
-        public string NotaFiscal { get; set; }
+        public string notaFiscal { get; set; }
         public string equipamentoEstado { get; set; }
         public Double equipamentoValor { get; set; }
         public string observacaoes { get; set; }
