@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PJ01InfinitySolutions
 {
-    public partial class Frm_PessoaEquipamento : Form
+    public partial class txtFornecedor : Form
     {
-        public Frm_PessoaEquipamento()
+        public txtFornecedor()
         {
             InitializeComponent();
         }
