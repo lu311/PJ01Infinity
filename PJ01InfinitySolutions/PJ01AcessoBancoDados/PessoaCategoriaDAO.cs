@@ -1,11 +1,7 @@
-﻿using PJ01Controller;
-using PJ01DAO_SQL;
+﻿using PJ01DAO_SQL;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PJ01Model
 {

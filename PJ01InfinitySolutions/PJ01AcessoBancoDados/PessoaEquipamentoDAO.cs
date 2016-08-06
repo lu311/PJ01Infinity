@@ -24,10 +24,10 @@ namespace PJ01AcessoBancoDados
         }
 
 
-        private void InserirPessoaEquipamento(PessoaEquipamentoModel Equipamento)
+        public void InserirPessoaEquipamento(PessoaEquipamentoModel Equipamento)
         {
             string sql = "INSERT INTO PESSOAEQUIPAMENTO ("
-                + "EQUIPAMENTOID, PESSOAID, EQUIPAMENTOTIPOID, DATACADASTRO, FABRICANTE,"
+                + "PESSOAID, EQUIPAMENTOTIPOID, DATACADASTRO, FABRICANTE,"
                 + "MODELO, NUMEROSERIE, ETIQUETAID, PRATIMONIOID, NOMEPCREDE, REDEIPFIXO,"
                 + "PROCESSADOR, PLACAMAE, MEMORIA, PLACAVGA, PLACAREDE, HD, DRIVERDVD, MONITOR,"
                 + "FONTEALIMENTACAO, IMPRESSORAS, IMPRESSORASIP, SCANNER, FORNECEDOR, COMPRADATA, "
@@ -38,8 +38,7 @@ namespace PJ01AcessoBancoDados
                 + "'@PROCESSADOR', '@PLACAMAE', '@MEMORIA, '@PLACAVGA', '@PLACAREDE', '@HD', '@DRIVERDVD', @MONITOR,"
                 + "'@FONTEALIMENTACAO', '@IMPRESSORAS', '@IMPRESSORASIP', '@SCANNER','@FORNECEDOR', '@COMPRADATA', "
                 + "'@COMPRAGARANTIA', '@NOTAFISCAL', 'EQUIPAMENTOESTADO', '@EQUIPAMENTOVALOR', '@OBSERVACOES')";
-
-            sql = sql.Replace("@EQUIPAMENTOID", Equipamento.equipamentoId.ToString());
+         
             sql = sql.Replace("@PESSOAID", Equipamento.pessoaID.ToString());
             sql = sql.Replace("@EQUIPAMENTOTIPOID", Equipamento.equipamentoTipoId.ToString());
             sql = sql.Replace("@DATACADASTRO", Equipamento.dataCadastro.ToString());
@@ -68,6 +67,8 @@ namespace PJ01AcessoBancoDados
             sql = sql.Replace("@EQUIPAMENTOESTADO", Equipamento.equipamentoEstado);
             sql = sql.Replace("@EQUIPAMENTOVALOR", Equipamento.equipamentoValor.ToString());
             sql = sql.Replace("@OBSERVACOES", Equipamento.observacaoes);
+
+            banco.Gravar(sql);
         }
 
 

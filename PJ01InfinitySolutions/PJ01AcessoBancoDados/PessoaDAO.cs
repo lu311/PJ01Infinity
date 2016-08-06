@@ -1,13 +1,8 @@
-﻿using PJ01Controller;
-using PJ01Model;
+﻿using PJ01DAO_SQL;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PJ01Model
 {

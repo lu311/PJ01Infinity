@@ -59,29 +59,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtIpFixo = new System.Windows.Forms.TextBox();
-            this.txtPlacaMae = new System.Windows.Forms.TextBox();
-            this.txtMemoria = new System.Windows.Forms.TextBox();
-            this.txtPlacaVga = new System.Windows.Forms.TextBox();
-            this.txtProcessador = new System.Windows.Forms.TextBox();
-            this.txtNomePc = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtHD = new System.Windows.Forms.TextBox();
-            this.txtMonitor = new System.Windows.Forms.TextBox();
-            this.txtFonte = new System.Windows.Forms.TextBox();
-            this.txtDriverDvd = new System.Windows.Forms.TextBox();
             this.txtPlacaRede = new System.Windows.Forms.TextBox();
+            this.txtDriverDvd = new System.Windows.Forms.TextBox();
+            this.txtFonte = new System.Windows.Forms.TextBox();
+            this.txtMonitor = new System.Windows.Forms.TextBox();
+            this.txtHD = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtNomePc = new System.Windows.Forms.TextBox();
+            this.txtProcessador = new System.Windows.Forms.TextBox();
+            this.txtPlacaVga = new System.Windows.Forms.TextBox();
+            this.txtMemoria = new System.Windows.Forms.TextBox();
+            this.txtPlacaMae = new System.Windows.Forms.TextBox();
+            this.txtIpFixo = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtObservacoes = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtImpressora = new System.Windows.Forms.TextBox();
             this.txtScanner = new System.Windows.Forms.TextBox();
@@ -89,16 +91,14 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtObservacoes = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,6 +139,7 @@
             this.btnGravar.Text = "Gravar";
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -425,137 +426,40 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Configuração do Equipamento";
             // 
-            // label17
+            // txtPlacaRede
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(28, 27);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(52, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Nome PC";
+            this.txtPlacaRede.Location = new System.Drawing.Point(87, 180);
+            this.txtPlacaRede.Name = "txtPlacaRede";
+            this.txtPlacaRede.Size = new System.Drawing.Size(195, 20);
+            this.txtPlacaRede.TabIndex = 26;
             // 
-            // label16
+            // txtDriverDvd
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(21, 158);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Placa VGA";
+            this.txtDriverDvd.Location = new System.Drawing.Point(87, 232);
+            this.txtDriverDvd.Name = "txtDriverDvd";
+            this.txtDriverDvd.Size = new System.Drawing.Size(195, 20);
+            this.txtDriverDvd.TabIndex = 25;
             // 
-            // label15
+            // txtFonte
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(33, 132);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 13);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Memória";
+            this.txtFonte.Location = new System.Drawing.Point(87, 284);
+            this.txtFonte.Name = "txtFonte";
+            this.txtFonte.Size = new System.Drawing.Size(195, 20);
+            this.txtFonte.TabIndex = 23;
             // 
-            // label14
+            // txtMonitor
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(23, 106);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Placa mãe";
+            this.txtMonitor.Location = new System.Drawing.Point(87, 258);
+            this.txtMonitor.Name = "txtMonitor";
+            this.txtMonitor.Size = new System.Drawing.Size(195, 20);
+            this.txtMonitor.TabIndex = 22;
             // 
-            // label13
+            // txtHD
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(14, 80);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Processador";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(44, 54);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "IP fixo";
-            // 
-            // txtIpFixo
-            // 
-            this.txtIpFixo.Location = new System.Drawing.Point(87, 50);
-            this.txtIpFixo.Name = "txtIpFixo";
-            this.txtIpFixo.Size = new System.Drawing.Size(195, 20);
-            this.txtIpFixo.TabIndex = 7;
-            // 
-            // txtPlacaMae
-            // 
-            this.txtPlacaMae.Location = new System.Drawing.Point(87, 102);
-            this.txtPlacaMae.Name = "txtPlacaMae";
-            this.txtPlacaMae.Size = new System.Drawing.Size(195, 20);
-            this.txtPlacaMae.TabIndex = 8;
-            // 
-            // txtMemoria
-            // 
-            this.txtMemoria.Location = new System.Drawing.Point(87, 128);
-            this.txtMemoria.Name = "txtMemoria";
-            this.txtMemoria.Size = new System.Drawing.Size(195, 20);
-            this.txtMemoria.TabIndex = 11;
-            // 
-            // txtPlacaVga
-            // 
-            this.txtPlacaVga.Location = new System.Drawing.Point(87, 154);
-            this.txtPlacaVga.Name = "txtPlacaVga";
-            this.txtPlacaVga.Size = new System.Drawing.Size(195, 20);
-            this.txtPlacaVga.TabIndex = 12;
-            // 
-            // txtProcessador
-            // 
-            this.txtProcessador.Location = new System.Drawing.Point(87, 76);
-            this.txtProcessador.Name = "txtProcessador";
-            this.txtProcessador.Size = new System.Drawing.Size(195, 20);
-            this.txtProcessador.TabIndex = 13;
-            // 
-            // txtNomePc
-            // 
-            this.txtNomePc.Location = new System.Drawing.Point(87, 24);
-            this.txtNomePc.Name = "txtNomePc";
-            this.txtNomePc.Size = new System.Drawing.Size(195, 20);
-            this.txtNomePc.TabIndex = 14;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 183);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 13);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Placa de rede";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(46, 288);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 13);
-            this.label21.TabIndex = 17;
-            this.label21.Text = "Fonte";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(38, 262);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(42, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Monitor";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(12, 236);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 13);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "Driver\'s DVD";
+            this.txtHD.Location = new System.Drawing.Point(87, 206);
+            this.txtHD.Name = "txtHD";
+            this.txtHD.Size = new System.Drawing.Size(195, 20);
+            this.txtHD.TabIndex = 21;
             // 
             // label18
             // 
@@ -566,40 +470,137 @@
             this.label18.TabIndex = 20;
             this.label18.Text = "HD";
             // 
-            // txtHD
+            // label19
             // 
-            this.txtHD.Location = new System.Drawing.Point(87, 206);
-            this.txtHD.Name = "txtHD";
-            this.txtHD.Size = new System.Drawing.Size(195, 20);
-            this.txtHD.TabIndex = 21;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(12, 236);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 13);
+            this.label19.TabIndex = 19;
+            this.label19.Text = "Driver\'s DVD";
             // 
-            // txtMonitor
+            // label20
             // 
-            this.txtMonitor.Location = new System.Drawing.Point(87, 258);
-            this.txtMonitor.Name = "txtMonitor";
-            this.txtMonitor.Size = new System.Drawing.Size(195, 20);
-            this.txtMonitor.TabIndex = 22;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(38, 262);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(42, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Monitor";
             // 
-            // txtFonte
+            // label21
             // 
-            this.txtFonte.Location = new System.Drawing.Point(87, 284);
-            this.txtFonte.Name = "txtFonte";
-            this.txtFonte.Size = new System.Drawing.Size(195, 20);
-            this.txtFonte.TabIndex = 23;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(46, 288);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(34, 13);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "Fonte";
             // 
-            // txtDriverDvd
+            // label23
             // 
-            this.txtDriverDvd.Location = new System.Drawing.Point(87, 232);
-            this.txtDriverDvd.Name = "txtDriverDvd";
-            this.txtDriverDvd.Size = new System.Drawing.Size(195, 20);
-            this.txtDriverDvd.TabIndex = 25;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 183);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 13);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Placa de rede";
             // 
-            // txtPlacaRede
+            // txtNomePc
             // 
-            this.txtPlacaRede.Location = new System.Drawing.Point(87, 180);
-            this.txtPlacaRede.Name = "txtPlacaRede";
-            this.txtPlacaRede.Size = new System.Drawing.Size(195, 20);
-            this.txtPlacaRede.TabIndex = 26;
+            this.txtNomePc.Location = new System.Drawing.Point(87, 24);
+            this.txtNomePc.Name = "txtNomePc";
+            this.txtNomePc.Size = new System.Drawing.Size(195, 20);
+            this.txtNomePc.TabIndex = 14;
+            // 
+            // txtProcessador
+            // 
+            this.txtProcessador.Location = new System.Drawing.Point(87, 76);
+            this.txtProcessador.Name = "txtProcessador";
+            this.txtProcessador.Size = new System.Drawing.Size(195, 20);
+            this.txtProcessador.TabIndex = 13;
+            // 
+            // txtPlacaVga
+            // 
+            this.txtPlacaVga.Location = new System.Drawing.Point(87, 154);
+            this.txtPlacaVga.Name = "txtPlacaVga";
+            this.txtPlacaVga.Size = new System.Drawing.Size(195, 20);
+            this.txtPlacaVga.TabIndex = 12;
+            // 
+            // txtMemoria
+            // 
+            this.txtMemoria.Location = new System.Drawing.Point(87, 128);
+            this.txtMemoria.Name = "txtMemoria";
+            this.txtMemoria.Size = new System.Drawing.Size(195, 20);
+            this.txtMemoria.TabIndex = 11;
+            // 
+            // txtPlacaMae
+            // 
+            this.txtPlacaMae.Location = new System.Drawing.Point(87, 102);
+            this.txtPlacaMae.Name = "txtPlacaMae";
+            this.txtPlacaMae.Size = new System.Drawing.Size(195, 20);
+            this.txtPlacaMae.TabIndex = 8;
+            // 
+            // txtIpFixo
+            // 
+            this.txtIpFixo.Location = new System.Drawing.Point(87, 50);
+            this.txtIpFixo.Name = "txtIpFixo";
+            this.txtIpFixo.Size = new System.Drawing.Size(195, 20);
+            this.txtIpFixo.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(44, 54);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "IP fixo";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 80);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Processador";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(23, 106);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Placa mãe";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 132);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Memória";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(21, 158);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Placa VGA";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(28, 27);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(52, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Nome PC";
             // 
             // panel4
             // 
@@ -611,6 +612,26 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(847, 363);
             this.panel4.TabIndex = 4;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtObservacoes);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(320, 122);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(527, 241);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Observações";
+            // 
+            // txtObservacoes
+            // 
+            this.txtObservacoes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtObservacoes.Location = new System.Drawing.Point(3, 16);
+            this.txtObservacoes.Name = "txtObservacoes";
+            this.txtObservacoes.Size = new System.Drawing.Size(521, 222);
+            this.txtObservacoes.TabIndex = 0;
+            this.txtObservacoes.Text = "";
             // 
             // groupBox4
             // 
@@ -676,26 +697,6 @@
             this.label33.TabIndex = 0;
             this.label33.Text = "Impressora";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txtObservacoes);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(320, 122);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(527, 241);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Observações";
-            // 
-            // txtObservacoes
-            // 
-            this.txtObservacoes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtObservacoes.Location = new System.Drawing.Point(3, 16);
-            this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(521, 222);
-            this.txtObservacoes.TabIndex = 0;
-            this.txtObservacoes.Text = "";
-            // 
             // txtFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,9 +717,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

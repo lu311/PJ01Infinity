@@ -1,4 +1,5 @@
-﻿using PJ01Model;
+﻿using PJ01AcessoBancoDados;
+using PJ01Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,10 @@ namespace PJ01Controller
     class PessoaEquipamentoControle
     {
 
-        public string msgValidacao;
-        public EquipamentoDAO dao;
-        public PessoaModel pessoa;
-        public PessoaEquipamentoModel pessoaEquipaento;
+        public string msgValidacao { get; set; }
+        public PessoaEquipamentoDAO dao;
+        public PessoaModel pessoa { get; set; }
+        public PessoaEquipamentoModel pessoaEquipaento { get; set; }
 
 
         public PessoaEquipamentoControle()
@@ -33,15 +34,27 @@ namespace PJ01Controller
 
 
   
-        private Boolean validaDados(PessoaEquipamentoModel Equipamento)
+        private Boolean validaDados()
         {
-            return false;
+            if (pessoa.pessoaId < 1)
+            {
+                msgValidacao += "\n Inserir código do cliente no equipamento.";
+                return false;
+            }
+            return true;
         }
 
 
-        public void Gravar(PessoaEquipamentoModel Equipamento)
+        public void Gravar()
         {
-
+            if (pessoaEquipaento.equipamentoId > 0)
+            {
+                dao.AlterarEquipamento(pessoaEquipaento);
+            }
+            else
+            {
+                dao.InserirPessoaEquipamento(pessoaEquipaento);
+            }
         }
 
 
@@ -65,7 +78,7 @@ namespace PJ01Controller
 
         public void ExcluirEquipamento(int EquipamentoID)
         {
-
+            dao.ExcluirPessoaEquipamento(EquipamentoID);
         }
     }
 }
